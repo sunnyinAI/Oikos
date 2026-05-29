@@ -12,7 +12,12 @@ const app = express();
 
 app.use(helmet({ contentSecurityPolicy: false }));
 
-const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:5173,capacitor://localhost,https://localhost').split(',').map(s => s.trim());
+const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:5173,capacitor://localhost,https://localhost').split(',').map(s => s.trim()).filter(Boolean);
+// Always trust this service's own public URL, whatever name Render assigns
+// (e.g. https://oikos-3pfb.onrender.com). RENDER_EXTERNAL_URL is injected at runtime.
+if (process.env.RENDER_EXTERNAL_URL && !allowedOrigins.includes(process.env.RENDER_EXTERNAL_URL)) {
+  allowedOrigins.push(process.env.RENDER_EXTERNAL_URL);
+}
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 300 });
