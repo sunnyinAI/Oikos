@@ -9,7 +9,10 @@ services:
     name: oikos
     runtime: node
     plan: free
-    buildCommand: npm ci --include=dev && npm ci --prefix client && npm ci --prefix apps/server && npm run build --prefix client
+    # NODE_ENV=production makes npm skip devDependencies. The client build
+    # tool (vite) lives in devDependencies, so the client install MUST pass
+    # --include=dev or `vite build` fails with "command not found" (exit 127).
+    buildCommand: npm ci --include=dev && npm ci --prefix client --include=dev && npm ci --prefix apps/server && npm run build --prefix client
     startCommand: node apps/server/index.js
     healthCheckPath: /api/health
     autoDeploy: true
