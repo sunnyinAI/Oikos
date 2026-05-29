@@ -1,8 +1,8 @@
 const translations = {
   en: {
     // App
-    appName: 'Kharcha',
-    tagline: 'Apna Ghar, Apna Hisaab',
+    appName: 'Omni',
+    tagline: 'All your home, in one place',
     // Nav
     home: 'Home',
     grocery: 'Grocery',
@@ -12,7 +12,7 @@ const translations = {
     finance: 'Finance',
     mandi: 'Mandi',
     meals: 'Meals',
-    askHundi: 'Ask Kharcha',
+    askHundi: 'Ask Omni',
     settings: 'Settings',
     // Actions
     add: 'Add',
@@ -94,7 +94,7 @@ const translations = {
   hi: {
     // App
     appName: 'खर्चा',
-    tagline: 'अपना घर, अपना हिसाब',
+    tagline: 'सब कुछ, एक जगह',
     // Nav
     home: 'होम',
     grocery: 'किराना',

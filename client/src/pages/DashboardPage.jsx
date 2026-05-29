@@ -45,7 +45,7 @@ const QUICK_LINKS = [
   },
   {
     to: '/assistant',
-    title: 'Ask Kharcha',
+    title: 'Ask Omni',
     description: 'Recipes, budget advice and shopping help.',
     icon: Bot,
     accent: 'bg-gradient-to-br from-brand-500 to-money-500 text-white',
@@ -135,7 +135,7 @@ export default function DashboardPage() {
   }, [financeSummary?.total_expense, financeSummary?.budget, pantryItems]);
 
   const greeting =
-    user?.name && user.name !== 'Kharcha User' ? `Namaste, ${user.name}` : 'Namaste';
+    user?.name && user.name !== 'Omni User' ? `Namaste, ${user.name}` : 'Namaste';
   const activeList = lists.find((list) => list.id === activeListId);
 
   return (
@@ -147,7 +147,7 @@ export default function DashboardPage() {
           <div className="mb-5 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-white/85">{greeting}</p>
-              <h2 className="mt-1 text-2xl font-bold tracking-tight">Apna Ghar, Apna Hisaab</h2>
+              <h2 className="mt-1 text-2xl font-bold tracking-tight">All your home, in one place</h2>
               <p className="mt-2 max-w-xs text-sm text-white/85">
                 Track groceries, compare prices, plan meals and keep your
                 household budget in one place.

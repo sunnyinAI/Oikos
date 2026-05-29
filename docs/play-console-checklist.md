@@ -1,14 +1,14 @@
 # Play Console Submission Checklist
 
-Use this checklist when releasing Kharcha on Google Play.
+Use this checklist when releasing Omni on Google Play.
 
 ## App setup
 
 - [ ] App title finalized
 - [ ] Default language and translations reviewed
-- [ ] Package name verified as `com.kharcha.app`
+- [ ] Package name verified as `com.omni.app`
 - [ ] App category selected
-- [ ] Contact email set to `support@kharcha.app` (or your real support email)
+- [ ] Contact email set to `support@omni.app` (or your real support email)
 
 ## Store listing assets
 

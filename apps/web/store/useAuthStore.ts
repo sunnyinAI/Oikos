@@ -51,7 +51,7 @@ export const useAuthStore = create<AuthState>()(
         try {
           const data = await api.verifyOtp(phone, otp);
           if (typeof window !== 'undefined') {
-            localStorage.setItem('kharcha_token', data.token);
+            localStorage.setItem('omni_token', data.token);
           }
           set({ user: data.user, token: data.token, isLoading: false });
           return data;
@@ -65,7 +65,7 @@ export const useAuthStore = create<AuthState>()(
       logout: async () => {
         try { await api.logout(); } catch { /* no-op */ }
         if (typeof window !== 'undefined') {
-          localStorage.removeItem('kharcha_token');
+          localStorage.removeItem('omni_token');
         }
         set({ user: null, token: null });
       },
@@ -79,11 +79,11 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: () => !!get().token,
     }),
     {
-      name: 'kharcha-auth',
+      name: 'omni-auth',
       partialize: (s) => ({ user: s.user, token: s.token }),
       onRehydrateStorage: () => (state) => {
         if (state?.token && typeof window !== 'undefined') {
-          localStorage.setItem('kharcha_token', state.token);
+          localStorage.setItem('omni_token', state.token);
         }
       },
     },

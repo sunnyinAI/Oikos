@@ -22,7 +22,7 @@ export default function TopBar({ title }) {
       {isTopLevel && (
         <div className="flex items-center gap-2">
           <div className="relative flex h-9 w-9 items-center justify-center rounded-2xl bg-brand-gradient shadow-glow">
-            <span className="font-devanagari text-base font-extrabold text-white drop-shadow-sm">ख</span>
+            <span className="font-devanagari text-base font-extrabold text-white drop-shadow-sm">ॐ</span>
             <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent-500 text-[9px] font-bold leading-none text-white ring-2 ring-white dark:ring-gray-900">
               ₹
             </span>

@@ -1,12 +1,12 @@
 databases:
-  - name: kharcha-db
+  - name: omni-db
     plan: free
-    databaseName: kharcha
-    user: kharcha
+    databaseName: omni
+    user: omni
 
 services:
   - type: web
-    name: kharcha
+    name: omni
     runtime: node
     plan: free
     buildCommand: npm ci --include=dev && npm ci --prefix client && npm ci --prefix apps/server && npm run build --prefix client
@@ -23,15 +23,15 @@ services:
         value: "false"
       - key: SESSION_EXPIRY_DAYS
         value: "30"
-      # Postgres connection injected by the kharcha-db service above
+      # Postgres connection injected by the omni-db service above
       - key: DATABASE_URL
         fromDatabase:
-          name: kharcha-db
+          name: omni-db
           property: connectionString
       # Allowed Origin list — web + Android WebView both need to be reachable.
       # capacitor://localhost is what the packaged Android app reports as origin.
       - key: CORS_ORIGINS
-        value: "https://kharcha.onrender.com,capacitor://localhost,https://localhost,http://localhost"
+        value: "https://omni.onrender.com,capacitor://localhost,https://localhost,http://localhost"
       # ---------- AI keys ----------
       - key: GEMINI_API_KEY
         sync: false

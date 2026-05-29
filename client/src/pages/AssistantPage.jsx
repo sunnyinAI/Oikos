@@ -89,7 +89,7 @@ export default function AssistantPage() {
             ? {
                 ...message,
                 content: err.message.includes('GEMINI_API_KEY') || err.message.includes('ANTHROPIC_API_KEY')
-                  ? 'AI is not configured on the server yet. Add `GEMINI_API_KEY` in `.env` (or fallback `ANTHROPIC_API_KEY`) to enable Ask Kharcha.'
+                  ? 'AI is not configured on the server yet. Add `GEMINI_API_KEY` in `.env` (or fallback `ANTHROPIC_API_KEY`) to enable Ask Omni.'
                   : err.message,
               }
             : message,
@@ -117,7 +117,7 @@ export default function AssistantPage() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-saffron-900 dark:text-saffron-200">
-              Ask Kharcha
+              Ask Omni
             </p>
             <p className="mt-1 text-sm text-saffron-800/80 dark:text-saffron-200/80">
               Recipes, grocery savings, budget advice and pantry-based cooking
@@ -139,7 +139,7 @@ export default function AssistantPage() {
       {!loadingHistory && messages.length === 0 && (
         <EmptyState
           icon="🤖"
-          title="Start a chat with Kharcha"
+          title="Start a chat with Omni"
           description="Ask for recipe help, budget advice or smart shopping suggestions."
         />
       )}
@@ -163,7 +163,7 @@ export default function AssistantPage() {
                   {!isUser && (
                     <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
                       <Bot size={12} />
-                      Kharcha
+                      Omni
                     </div>
                   )}
                   <p className="whitespace-pre-wrap leading-6">

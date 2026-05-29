@@ -51,7 +51,7 @@ export const useUIStore = create(
       removeToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
     }),
     {
-      name: 'kharcha-ui',
+      name: 'omni-ui',
       partialize: (s) => ({
         language: s.language,
         darkMode: s.darkMode,

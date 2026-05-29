@@ -1,10 +1,10 @@
-const CACHE_NAME = 'kharcha-static-v3';
+const CACHE_NAME = 'omni-static-v3';
 const APP_SHELL = [
   '/',
   '/manifest.json',
-  '/kharcha-icon.svg',
-  '/kharcha-icon-192.png',
-  '/kharcha-icon-512.png',
+  '/omni-icon.svg',
+  '/omni-icon-192.png',
+  '/omni-icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {

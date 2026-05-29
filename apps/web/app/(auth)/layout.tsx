@@ -12,7 +12,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     // If already authenticated, go home
     const stored =
       token ||
-      (typeof window !== 'undefined' ? localStorage.getItem('kharcha_token') : null);
+      (typeof window !== 'undefined' ? localStorage.getItem('omni_token') : null);
     if (stored) router.replace('/');
   }, [token, router]);
 

@@ -91,7 +91,7 @@ export default function MealsPage() {
             <p className="text-sm text-gray-500 dark:text-gray-400">Pantry-aware weekly planning</p>
             <h2 className="mt-1 text-xl font-semibold text-gray-900 dark:text-gray-100">Build an Indian meal plan in one tap</h2>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-              Kharcha uses saved pantry items and household preferences to suggest breakfast, lunch and dinner for the full week.
+              Omni uses saved pantry items and household preferences to suggest breakfast, lunch and dinner for the full week.
             </p>
           </div>
           <div className="rounded-3xl bg-saffron-500 p-3 text-white"><CookingPot size={22} /></div>

@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   phone TEXT UNIQUE NOT NULL,
-  name TEXT DEFAULT 'Kharcha User',
+  name TEXT DEFAULT 'Omni User',
   language TEXT DEFAULT 'en',
   dark_mode SMALLINT DEFAULT 0,
   dietary_pref TEXT DEFAULT 'vegetarian',

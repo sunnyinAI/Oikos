@@ -1,7 +1,7 @@
 {
-  "name": "Kharcha",
-  "short_name": "Kharcha",
-  "description": "Kharcha — Apna Ghar, Apna Hisaab. AI-powered smart shopping and life organiser for Indian households.",
+  "name": "Omni",
+  "short_name": "Omni",
+  "description": "Omni — All your home, in one place. AI-powered smart shopping and life organiser for Indian households.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#071E2B",
@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/kharcha-icon.svg",
+      "src": "/omni-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -29,10 +29,10 @@
       "description": "Check Indian grocery prices across platforms"
     },
     {
-      "name": "Ask Kharcha",
+      "name": "Ask Omni",
       "short_name": "Assistant",
       "url": "/assistant",
-      "description": "Chat with Kharcha for recipes and budget advice"
+      "description": "Chat with Omni for recipes and budget advice"
     }
   ]
 }

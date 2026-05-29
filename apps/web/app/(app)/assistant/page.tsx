@@ -62,7 +62,7 @@ export default function AssistantPage() {
       setMessages((current) =>
         current.map((m) =>
           m.id === assistantId
-            ? { ...m, content: msg.includes('ANTHROPIC_API_KEY') ? 'AI is not configured on the server yet. Add `ANTHROPIC_API_KEY` in `.env` to enable Ask Kharcha.' : msg }
+            ? { ...m, content: msg.includes('ANTHROPIC_API_KEY') ? 'AI is not configured on the server yet. Add `ANTHROPIC_API_KEY` in `.env` to enable Ask Omni.' : msg }
             : m,
         ),
       );
@@ -83,7 +83,7 @@ export default function AssistantPage() {
       <div className="rounded-2xl border border-saffron-200 bg-saffron-50 px-4 py-4 dark:border-saffron-900/40 dark:bg-saffron-950/20">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold text-saffron-900 dark:text-saffron-200">Ask Kharcha</p>
+            <p className="text-sm font-semibold text-saffron-900 dark:text-saffron-200">Ask Omni</p>
             <p className="mt-1 text-sm text-saffron-800/80 dark:text-saffron-200/80">
               Recipes, grocery savings, budget advice and pantry-based cooking suggestions in Indian household context.
             </p>
@@ -95,7 +95,7 @@ export default function AssistantPage() {
       {loadingHistory && <div className="flex justify-center py-12"><Spinner size="lg" /></div>}
 
       {!loadingHistory && messages.length === 0 && (
-        <EmptyState icon="🤖" title="Start a chat with Kharcha"
+        <EmptyState icon="🤖" title="Start a chat with Omni"
           description="Ask for recipe help, budget advice or smart shopping suggestions." />
       )}
 
@@ -112,7 +112,7 @@ export default function AssistantPage() {
                 }`}>
                   {!isUser && (
                     <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
-                      <Bot size={12} /> Kharcha
+                      <Bot size={12} /> Omni
                     </div>
                   )}
                   <p className="whitespace-pre-wrap leading-6">

@@ -5,14 +5,14 @@ Current status:
 - The local runnable app is the `client` + `server` PWA/Express app.
 - The app has PWA metadata at `client/public/manifest.json`.
 - Standard `192x192` and `512x512` PNG icons are now available for PWA/TWA tooling.
-- The service worker now caches Kharcha assets instead of the old Quantis icon.
+- The service worker now caches Omni assets instead of the old Quantis icon.
 - Authenticated account deletion is now available at `DELETE /api/auth/account` and in the Settings screen.
 - A public account-deletion information page is available at `/account-deletion.html`.
 
 ## Recommended Packaging Path
 
 Use a Trusted Web Activity (TWA) with Bubblewrap. This is the lowest-risk route
-because Kharcha is already a mobile-first PWA and the backend must remain online
+because Omni is already a mobile-first PWA and the backend must remain online
 for account, grocery, pantry, finance, mandi, meal, and assistant features.
 
 The Android app bundle will point to the production HTTPS web app URL.
@@ -21,8 +21,8 @@ The Android app bundle will point to the production HTTPS web app URL.
 
 Before generating the Play-ready Android App Bundle, decide these values:
 
-- Production HTTPS URL, for example `https://kharcha.example.com`
-- Android package name, for example `in.yourcompany.kharcha`
+- Production HTTPS URL, for example `https://omni.example.com`
+- Android package name, for example `in.yourcompany.omni`
 - Google Play developer account owner
 - App signing approach in Play Console
 - Developer/contact email
@@ -39,7 +39,7 @@ The included `render.yaml` deploys one Render web service backed by Render
 Postgres. Render will provide a URL like:
 
 ```text
-https://kharcha.onrender.com
+https://omni.onrender.com
 ```
 
 To create that URL:
@@ -121,7 +121,7 @@ from Play Console, not only the local upload key.
 
 ## Data Safety Notes
 
-Kharcha can collect or store:
+Omni can collect or store:
 
 - Phone number for OTP login.
 - Profile and household preferences.

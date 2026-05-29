@@ -1,7 +1,7 @@
 const BASE = '/api';
 
 const request = async (method, path, body) => {
-  const token = localStorage.getItem('kharcha_token');
+  const token = localStorage.getItem('omni_token');
   const res = await fetch(`${BASE}${path}`, {
     method,
     headers: {
@@ -26,7 +26,7 @@ export const patch = (path, body) => request('PATCH', path, body);
 export const del = (path) => request('DELETE', path);
 
 export const streamAssistantChat = async (message, onChunk) => {
-  const token = localStorage.getItem('kharcha_token');
+  const token = localStorage.getItem('omni_token');
   const res = await fetch(`${BASE}/assistant/chat`, {
     method: 'POST',
     headers: {

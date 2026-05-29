@@ -1,4 +1,4 @@
-// Firebase Cloud Messaging (Web) integration for Kharcha.
+// Firebase Cloud Messaging (Web) integration for Omni.
 // Lazy-loads firebase so the SDK is only paid for if the user opts in.
 
 import { getPushConfig, registerPushToken, unregisterPushToken } from './api';
@@ -68,15 +68,15 @@ export async function enablePush() {
   });
   if (!token) throw new Error('Could not obtain push token');
   await registerPushToken(token, 'web');
-  localStorage.setItem('kharcha_push_token', token);
+  localStorage.setItem('omni_push_token', token);
   return token;
 }
 
 export async function disablePush() {
-  const token = localStorage.getItem('kharcha_push_token');
+  const token = localStorage.getItem('omni_push_token');
   if (token) {
     try { await unregisterPushToken(token); } catch { /* noop */ }
-    localStorage.removeItem('kharcha_push_token');
+    localStorage.removeItem('omni_push_token');
   }
 }
 

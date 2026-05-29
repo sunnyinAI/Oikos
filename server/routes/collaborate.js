@@ -17,7 +17,7 @@ router.post('/share/:listId', auth, (req, res) => {
   }
 
   const shareUrl = `${req.protocol}://${req.get('host')}/join/${shareCode}`;
-  const waUrl = `https://wa.me/?text=${encodeURIComponent(`Join my Kharcha grocery list: ${shareUrl}`)}`;
+  const waUrl = `https://wa.me/?text=${encodeURIComponent(`Join my Omni grocery list: ${shareUrl}`)}`;
 
   res.json({ share_code: shareCode, share_url: shareUrl, whatsapp_url: waUrl });
 });

@@ -67,7 +67,7 @@ export default function GroceryPage() {
         shareCode: share_code,
       });
       await shareViaNative({
-        title: `${list?.name || 'Grocery'} — Kharcha`,
+        title: `${list?.name || 'Grocery'} — Omni`,
         text,
       });
       addToast(`Shared! Code: ${share_code}`, 'success');

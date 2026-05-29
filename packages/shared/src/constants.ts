@@ -1,9 +1,9 @@
-export const APP_NAME = 'Kharcha';
-export const APP_TAGLINE = 'Apna Ghar, Apna Hisaab';
-export const APP_TAGLINE_HI = 'अपना घर, अपना हिसाब';
+export const APP_NAME = 'Omni';
+export const APP_TAGLINE = 'All your home, in one place';
+export const APP_TAGLINE_HI = 'सब कुछ, एक जगह';
 
-export const SESSION_TOKEN_KEY = 'kharcha_token';
-export const STORE_PREFIX = 'kharcha';
+export const SESSION_TOKEN_KEY = 'omni_token';
+export const STORE_PREFIX = 'omni';
 
 export const GROCERY_CATEGORIES = [
   { id: 'sabzi', label: 'Sabzi', labelFull: 'Sabzi / Vegetables', icon: '🥬', colorClass: 'bg-green-100 text-green-800' },

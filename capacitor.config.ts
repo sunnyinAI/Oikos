@@ -2,12 +2,12 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 // Backend that the Android WebView talks to.
 // Override via env when building for a different stage:
-//   APP_API_URL=https://kharcha.onrender.com npm run android:sync
-const API_URL = process.env.APP_API_URL || 'https://kharcha.onrender.com';
+//   APP_API_URL=https://omni.onrender.com npm run android:sync
+const API_URL = process.env.APP_API_URL || 'https://omni.onrender.com';
 
 const config: CapacitorConfig = {
-  appId: 'com.kharcha.app',
-  appName: 'Kharcha',
+  appId: 'com.omni.app',
+  appName: 'Omni',
   webDir: 'client/dist',
   // Load the production web app directly from the Render-hosted backend.
   // This keeps the AAB tiny and means UI updates ship instantly without
@@ -17,7 +17,7 @@ const config: CapacitorConfig = {
     url: API_URL,
     cleartext: false,
     allowNavigation: [
-      'kharcha.onrender.com',
+      'omni.onrender.com',
       '*.onrender.com',
       'wa.me',
       'api.whatsapp.com',

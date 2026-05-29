@@ -57,7 +57,7 @@ router.get('/admin-status', auth, (req, res) => {
 router.post('/test', auth, async (req, res) => {
   try {
     const result = await sendToUser(req.user.id, {
-      title: 'Kharcha 👋',
+      title: 'Omni 👋',
       body: `Hi ${req.user.name || 'there'}! Push notifications are live.`,
       url: '/',
     });

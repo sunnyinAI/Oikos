@@ -1,4 +1,4 @@
-# Kharcha Android + Play Store Guide
+# Omni Android + Play Store Guide
 
 This project is now prepared for Android packaging with Capacitor.
 

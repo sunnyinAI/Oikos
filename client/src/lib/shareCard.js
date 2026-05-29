@@ -32,8 +32,8 @@ export function buildListShareText({
   const done = items.filter((i) => i.is_checked);
 
   const lines = [];
-  lines.push(`🛒 *${listName}* — Kharcha`);
-  lines.push(`_अपना घर, अपना हिसाब_`);
+  lines.push(`🛒 *${listName}* — Omni`);
+  lines.push(`_सब कुछ, एक जगह_`);
   lines.push('');
 
   if (pending.length > 0) {
@@ -54,14 +54,14 @@ export function buildListShareText({
   }
 
   if (pending.length === 0 && done.length === 0) {
-    lines.push('_Empty list — add items in Kharcha._');
+    lines.push('_Empty list — add items in Omni._');
     lines.push('');
   }
 
   if (shareCode) {
-    const base = origin || (typeof window !== 'undefined' ? window.location.origin : 'https://kharcha.app');
+    const base = origin || (typeof window !== 'undefined' ? window.location.origin : 'https://omni.app');
     lines.push(`👉 Join this list: ${base}/join/${shareCode}`);
-    lines.push(`Or open Kharcha and enter code: *${shareCode}*`);
+    lines.push(`Or open Omni and enter code: *${shareCode}*`);
   }
 
   return lines.join('\n');

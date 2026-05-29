@@ -46,10 +46,10 @@ const buildVendorUrl = (vendor, query) => {
   const tag = process.env[`AFFILIATE_TAG_${vendor.toUpperCase()}`];
   if (tag) {
     const sep = url.includes('?') ? '&' : '?';
-    url += `${sep}utm_source=kharcha&utm_medium=affiliate&utm_campaign=${encodeURIComponent(tag)}`;
+    url += `${sep}utm_source=omni&utm_medium=affiliate&utm_campaign=${encodeURIComponent(tag)}`;
   } else {
     const sep = url.includes('?') ? '&' : '?';
-    url += `${sep}utm_source=kharcha`;
+    url += `${sep}utm_source=omni`;
   }
   return url;
 };

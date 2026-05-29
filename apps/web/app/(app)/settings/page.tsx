@@ -31,7 +31,7 @@ export default function SettingsPage() {
   const { addToast } = useUIStore();
 
   const [form, setForm] = useState(() => ({
-    name: user?.name === 'Kharcha User' ? '' : user?.name || '',
+    name: user?.name === 'Omni User' ? '' : user?.name || '',
     family_size: String(user?.family_size || 2),
     monthly_budget: String(user?.monthly_budget || 10000),
     dietary_pref: user?.dietary_pref || 'vegetarian',
@@ -49,7 +49,7 @@ export default function SettingsPage() {
     setSaving(true);
     try {
       await updateProfile({
-        name: form.name || 'Kharcha User',
+        name: form.name || 'Omni User',
         language: currentLanguage as 'en' | 'hi',
         dark_mode: darkMode ? 1 : 0,
         dietary_pref: form.dietary_pref,

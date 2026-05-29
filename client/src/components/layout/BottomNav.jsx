@@ -15,7 +15,7 @@ const MORE_ITEMS = [
   { to: '/finance', label: 'Finance', labelHi: 'हिसाब', icon: '💰' },
   { to: '/mandi', label: 'Mandi', labelHi: 'मंडी', icon: '🌾' },
   { to: '/meals', label: 'Meal Planner', labelHi: 'खाना', icon: '🍽️' },
-  { to: '/assistant', label: 'Ask Kharcha', labelHi: 'पूछो', icon: '🤖' },
+  { to: '/assistant', label: 'Ask Omni', labelHi: 'पूछो', icon: '🤖' },
   { to: '/settings', label: 'Settings', labelHi: 'सेटिंग्स', icon: '⚙️' },
 ];
 

@@ -20,7 +20,7 @@ const SLIDES = [
     bg: 'from-money-500 via-money-500 to-money-700',
     title: { en: 'Save real paisa, every month', hi: 'हर महीने असली पैसा बचाओ' },
     body: {
-      en: 'See where your kharcha goes. Compare Blinkit vs Zepto vs mandi. Bills, budgets, all in one place.',
+      en: 'See where your omni goes. Compare Blinkit vs Zepto vs mandi. Bills, budgets, all in one place.',
       hi: 'खर्चा कहाँ जा रहा है देखो। ब्लिंकिट, ज़ेप्टो, मंडी की तुलना करो। बिल, बजट — सब एक जगह।',
     },
   },

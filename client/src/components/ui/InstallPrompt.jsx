@@ -66,7 +66,7 @@ export default function InstallPrompt() {
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                {language === 'hi' ? 'Kharcha इंस्टॉल करें' : 'Install Kharcha'}
+                {language === 'hi' ? 'Omni इंस्टॉल करें' : 'Install Omni'}
               </p>
               <p className="truncate text-xs text-gray-500 dark:text-gray-400">
                 {language === 'hi'

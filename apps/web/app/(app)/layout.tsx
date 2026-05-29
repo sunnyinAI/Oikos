@@ -28,7 +28,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored =
       token ||
-      (typeof window !== 'undefined' ? localStorage.getItem('kharcha_token') : null);
+      (typeof window !== 'undefined' ? localStorage.getItem('omni_token') : null);
     if (!stored) router.replace('/login');
   }, [token, router]);
 

@@ -1,4 +1,4 @@
-# Play Console: Data Safety form — exact answers for Kharcha
+# Play Console: Data Safety form — exact answers for Omni
 
 This is the cheat sheet for the **Data Safety** form (App content → Data safety) so you can fill it in 10 minutes without guesswork. Each section maps to a specific Play Console question.
 
@@ -114,7 +114,7 @@ All **No**.
 
 ## 4. Audio rationale (Play sometimes asks)
 
-Voice input in the Add-Item sheet uses the browser's **Web Speech API** (`SpeechRecognition`). Audio is processed *on-device by the browser* and only the resulting text is sent to our server. We **do not** collect, store, or transmit audio files. The microphone permission is requested by the browser, not by Kharcha directly.
+Voice input in the Add-Item sheet uses the browser's **Web Speech API** (`SpeechRecognition`). Audio is processed *on-device by the browser* and only the resulting text is sent to our server. We **do not** collect, store, or transmit audio files. The microphone permission is requested by the browser, not by Omni directly.
 
 ---
 
@@ -151,4 +151,4 @@ Both URLs must return HTTP 200 from a public, non-authenticated browser. Test be
 - [ ] In-app **Settings → Delete Account** end-to-end works (manually test)
 - [ ] The data-types you ticked above match the policy exactly
 - [ ] You are NOT collecting anything not listed above (one stray analytics SDK can fail the review)
-- [ ] You have a working **support email** (`support@kharcha.app`) that you actually monitor
+- [ ] You have a working **support email** (`support@omni.app`) that you actually monitor

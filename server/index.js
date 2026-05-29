@@ -45,7 +45,7 @@ app.use('/api/affiliate', require('./routes/affiliate'));
 app.use('/api/push', require('./routes/push'));
 
 // Health check
-app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }));
+app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Omni' }));
 
 // Serve client in production
 if (process.env.NODE_ENV === 'production') {
@@ -59,5 +59,5 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🪔 Kharcha server running on port ${PORT}`);
+  console.log(`🪔 Omni server running on port ${PORT}`);
 });

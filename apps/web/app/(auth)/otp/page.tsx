@@ -62,7 +62,7 @@ export default function OtpPage() {
       await verifyOtp(phone, otpStr);
       sessionStorage.removeItem('otp_phone');
       sessionStorage.removeItem('otp_dev');
-      addToast('Welcome to Kharcha!', 'success');
+      addToast('Welcome to Omni!', 'success');
       const pendingShareCode = sessionStorage.getItem('pendingShareCode');
       if (pendingShareCode) {
         sessionStorage.removeItem('pendingShareCode');

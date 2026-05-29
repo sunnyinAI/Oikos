@@ -1,5 +1,5 @@
-export const APP_NAME = 'Kharcha';
-export const APP_TAGLINE = 'Apna Ghar, Apna Hisaab';
+export const APP_NAME = 'Omni';
+export const APP_TAGLINE = 'All your home, in one place';
 
 export const GROCERY_CATEGORIES = [
   { id: 'sabzi', label: 'Sabzi', labelFull: 'Sabzi / Vegetables', icon: '🥬', color: 'green', colorClass: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' },
