@@ -8,7 +8,55 @@ const router = express.Router();
 // In-memory OTP store (Map is fine for single instance)
 const otpStore = new Map();
 
-router.post('/send-otp', async (req, res) => {
+// ---------- SMS delivery via MSG91 Flow API ----------
+const MSG91_AUTH_KEY = process.env.MSG91_AUTH_KEY;
+const MSG91_TEMPLATE_ID = process.env.MSG91_TEMPLATE_ID;
+const MSG91_OTP_VAR = process.env.MSG91_OTP_VAR || 'OTP'; // must match the variable name in your DLT template
+const SMS_COUNTRY_CODE = process.env.SMS_COUNTRY_CODE || '91';
+
+async function sendOtpSms(phone, otp) {
+  if (!MSG91_AUTH_KEY || !MSG91_TEMPLATE_ID) {
+    const err = new Error('SMS service is not configured. Please try again later.');
+    err.status = 503;
+    throw err;
+  }
+
+  const recipient = { mobiles: `${SMS_COUNTRY_CODE}${phone}` };
+  recipient[MSG91_OTP_VAR] = otp;
+
+  let resp, data;
+  try {
+    resp = await fetch('https://control.msg91.com/api/v5/flow/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+        authkey: MSG91_AUTH_KEY,
+      },
+      body: JSON.stringify({
+        template_id: MSG91_TEMPLATE_ID,
+        short_url: '0',
+        recipients: [recipient],
+      }),
+    });
+    data = await resp.json().catch(() => ({}));
+  } catch (e) {
+    const err = new Error('Could not reach the SMS service. Please try again.');
+    err.status = 502;
+    throw err;
+  }
+
+  // MSG91 replies { type: 'success' | 'error', message }
+  if (!resp.ok || data.type === 'error') {
+    console.error('MSG91 send failed:', resp.status, data);
+    const err = new Error('Failed to send OTP. Please try again.');
+    err.status = 502;
+    throw err;
+  }
+  return data;
+}
+
+router.post('/send-otp', async (req, res, next) => {
   const { phone } = req.body;
   if (!phone || !/^[6-9]\d{9}$/.test(phone)) {
     return res.status(400).json({ message: 'Valid 10-digit Indian mobile number required' });
@@ -17,9 +65,19 @@ router.post('/send-otp', async (req, res) => {
   const otp = String(Math.floor(100000 + Math.random() * 900000));
   otpStore.set(phone, { otp, expiresAt: Date.now() + 5 * 60 * 1000 });
 
-  const response = { message: 'OTP sent successfully' };
-  if (process.env.DEV_OTP_VISIBLE === 'true') response.otp = otp;
-  res.json(response);
+  // Dev/demo mode: skip real SMS and return the code so it can be shown on screen.
+  if (process.env.DEV_OTP_VISIBLE === 'true') {
+    return res.json({ message: 'OTP sent successfully', otp });
+  }
+
+  // Production: deliver the code via SMS.
+  try {
+    await sendOtpSms(phone, otp);
+    res.json({ message: 'OTP sent successfully' });
+  } catch (err) {
+    otpStore.delete(phone); // don't leave a code that was never delivered
+    next(err);
+  }
 });
 
 router.post('/verify-otp', async (req, res) => {

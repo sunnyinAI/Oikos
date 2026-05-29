@@ -40,6 +40,16 @@ services:
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
+      # ---------- SMS / OTP delivery (MSG91) ----------
+      # MSG91_AUTH_KEY   → MSG91 dashboard → Auth Key
+      # MSG91_TEMPLATE_ID → the DLT-approved Flow template id used to send the OTP
+      # MSG91_OTP_VAR    → the variable name inside that template (default "OTP")
+      - key: MSG91_AUTH_KEY
+        sync: false
+      - key: MSG91_TEMPLATE_ID
+        sync: false
+      - key: MSG91_OTP_VAR
+        sync: false
       # ---------- Firebase Cloud Messaging ----------
       - key: FIREBASE_API_KEY
         sync: false
