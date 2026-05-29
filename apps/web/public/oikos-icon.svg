@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="ktitle kdesc">
-  <title id="ktitle">Kharcha app icon</title>
-  <desc id="kdesc">Teal chalkboard with Devanagari letter Kha in white chalk</desc>
+  <title id="ktitle">Oikos app icon</title>
+  <desc id="kdesc">Teal chalkboard with a Greek omega mark in white chalk</desc>
 
   <defs>
     <!-- Chalk roughness filter -->
@@ -59,16 +59,16 @@
     stroke="rgba(255,255,255,0.07)" stroke-width="2.5" stroke-linecap="round"
     filter="url(#chalk)"/>
 
-  <!-- Main Devanagari letter ख  in chalk white -->
+  <!-- Main Greek omega mark in chalk white -->
   <text
-    x="64" y="90"
+    x="64" y="92"
     text-anchor="middle"
-    font-family="'Noto Sans Devanagari', 'Mangal', 'Sanskrit Text', serif"
-    font-size="74"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="72"
     font-weight="700"
     fill="rgba(240, 248, 255, 0.90)"
     filter="url(#chalkletter)"
-  >ख</text>
+  >Ω</text>
 
   <!-- Faint teal shine on frame top-left corner -->
   <ellipse cx="22" cy="18" rx="18" ry="8"

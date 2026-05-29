@@ -4,7 +4,7 @@ import { Bell, X } from 'lucide-react';
 import { enablePush, isPushAvailable } from '../../lib/push';
 import { useUIStore } from '../../store/useUIStore';
 
-const STORAGE_KEY = 'omni_push_dismissed_at';
+const STORAGE_KEY = 'oikos_push_dismissed_at';
 const SHOW_AFTER_MS = 8000;
 const COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
 
@@ -20,7 +20,7 @@ export default function PushPermissionBanner() {
     (async () => {
       if (typeof window === 'undefined') return;
       if (typeof Notification === 'undefined') return;
-      if (Notification.permission === 'granted' && localStorage.getItem('omni_push_token')) return;
+      if (Notification.permission === 'granted' && localStorage.getItem('oikos_push_token')) return;
       if (Notification.permission === 'denied') return;
       const dismissedAt = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
       if (dismissedAt && Date.now() - dismissedAt < COOLDOWN_MS) return;

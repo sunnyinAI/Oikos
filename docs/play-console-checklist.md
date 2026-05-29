@@ -1,14 +1,14 @@
 # Play Console Submission Checklist
 
-Use this checklist when releasing Omni on Google Play.
+Use this checklist when releasing Oikos on Google Play.
 
 ## App setup
 
 - [ ] App title finalized
 - [ ] Default language and translations reviewed
-- [ ] Package name verified as `com.omni.app`
+- [ ] Package name verified as `com.oikos.app`
 - [ ] App category selected
-- [ ] Contact email set to `support@omni.app` (or your real support email)
+- [ ] Contact email set to `support@oikos.app` (or your real support email)
 
 ## Store listing assets
 

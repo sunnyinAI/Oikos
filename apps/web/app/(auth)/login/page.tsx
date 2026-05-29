@@ -53,16 +53,15 @@ export default function LoginPage() {
           {/* chalk dust specks */}
           <span className="absolute bottom-2 left-2.5 w-1 h-0.5 rounded-full bg-white/30" />
           <span className="absolute bottom-2 left-5 w-0.5 h-0.5 rounded-full bg-white/25" />
-          <span className="relative text-4xl font-bold font-devanagari" style={{ color: 'rgba(230,248,255,0.92)', textShadow: '0 0 6px rgba(255,255,255,0.15)' }}>ॐ</span>
+          <span className="relative text-4xl font-bold" style={{ color: 'rgba(230,248,255,0.92)', textShadow: '0 0 6px rgba(255,255,255,0.15)' }}>Ω</span>
         </motion.div>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
         >
-          <h1 className="text-3xl font-bold mb-1">Omni</h1>
-          <p className="text-white/80 text-lg">सब कुछ, एक जगह</p>
-          <p className="text-white/60 text-sm mt-1">Sab kuch, ek jagah</p>
+          <h1 className="text-3xl font-bold mb-1">Oikos</h1>
+          <p className="text-white/80 text-base mt-1">The Intelligence Behind Household Wealth</p>
         </motion.div>
       </div>
 

@@ -12,7 +12,7 @@ export default function JoinListPage() {
   const { shareCode = '' } = useParams();
   const navigate = useNavigate();
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('omni_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('oikos_token');
   const { addToast } = useUIStore();
   const [status, setStatus] = useState('loading');
   const [message, setMessage] = useState('');
@@ -61,7 +61,7 @@ export default function JoinListPage() {
           <div className="flex flex-col items-center py-6 text-center">
             <Spinner size="lg" />
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              Connecting your Omni account to shared list code{' '}
+              Connecting your Oikos account to shared list code{' '}
               <span className="font-semibold text-gray-800 dark:text-gray-100">
                 {shareCode.toUpperCase()}
               </span>

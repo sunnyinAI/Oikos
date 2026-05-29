@@ -56,7 +56,7 @@ export const useUIStore = create<UIState>()(
       removeToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
     }),
     {
-      name: 'omni-ui',
+      name: 'oikos-ui',
       partialize: (s) => ({ language: s.language, darkMode: s.darkMode }),
       onRehydrateStorage: () => (state) => {
         if (state?.darkMode && typeof document !== 'undefined') {

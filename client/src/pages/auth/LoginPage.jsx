@@ -16,7 +16,7 @@ const T = {
     en: 'Sign in to join family list code',
     hi: 'पारिवारिक लिस्ट से जुड़ने के लिए साइन-इन करें — कोड',
   },
-  tagline: { en: 'Sab kuch, ek jagah', hi: 'सब कुछ, एक जगह' },
+  tagline: { en: 'The Intelligence Behind Household Wealth', hi: 'The Intelligence Behind Household Wealth' },
   terms: {
     en: 'By continuing, you agree to our Terms of Service and Privacy Policy',
     hi: 'जारी रखकर आप हमारी सेवा शर्तें और गोपनीयता नीति से सहमत हैं',
@@ -71,7 +71,7 @@ export default function LoginPage() {
           transition={{ type: 'spring', damping: 20 }}
           className="relative w-20 h-20 bg-white/20 ring-1 ring-white/30 rounded-3xl flex items-center justify-center mb-6 backdrop-blur-sm shadow-glow"
         >
-          <span className="font-devanagari text-4xl font-extrabold text-white">ॐ</span>
+          <span className="text-4xl font-extrabold text-white">Ω</span>
         </motion.div>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -79,9 +79,8 @@ export default function LoginPage() {
           transition={{ delay: 0.1 }}
           className="relative"
         >
-          <h1 className="text-3xl font-bold mb-1">Omni</h1>
-          <p className="text-white/85 text-lg font-devanagari">सब कुछ, एक जगह</p>
-          <p className="text-white/65 text-sm mt-1">{t('tagline')}</p>
+          <h1 className="text-3xl font-bold mb-1">Oikos</h1>
+          <p className="text-white/85 text-base mt-1">{t('tagline')}</p>
         </motion.div>
       </div>
 

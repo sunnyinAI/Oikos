@@ -1,4 +1,4 @@
-package com.kharcha.app;
+package com.oikos.app;
 
 import com.getcapacitor.BridgeActivity;
 

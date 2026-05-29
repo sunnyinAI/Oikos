@@ -18,7 +18,7 @@ const QUICK_LINKS = [
   { to: '/grocery', title: 'Grocery List', description: 'Add weekly essentials and share with family.', icon: ShoppingCart, accent: 'bg-saffron-500 text-white' },
   { to: '/prices', title: 'Compare Prices', description: 'Blinkit, Zepto, BigBasket and more.', icon: TrendingUp, accent: 'bg-kgreen-500 text-white' },
   { to: '/meals', title: 'Meal Planner', description: 'Use pantry items before they expire.', icon: CookingPot, accent: 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900' },
-  { to: '/assistant', title: 'Ask Omni', description: 'Recipes, budget advice and shopping help.', icon: Bot, accent: 'bg-white text-saffron-600 border border-saffron-200 dark:bg-gray-900 dark:text-saffron-300 dark:border-saffron-900/40' },
+  { to: '/assistant', title: 'Ask Oikos', description: 'Recipes, budget advice and shopping help.', icon: Bot, accent: 'bg-white text-saffron-600 border border-saffron-200 dark:bg-gray-900 dark:text-saffron-300 dark:border-saffron-900/40' },
 ];
 
 const STATUS_CARDS = [
@@ -60,7 +60,7 @@ export default function DashboardPage() {
   }, [activeListId, financeSummary, items, pantryItems]);
 
   const greeting =
-    user?.name && user.name !== 'Omni User' ? `Namaste, ${user.name}` : 'Namaste';
+    user?.name && user.name !== 'Oikos User' ? `Welcome, ${user.name}` : 'Welcome';
   const activeList = lists.find((l) => l.id === activeListId);
 
   return (
@@ -70,7 +70,7 @@ export default function DashboardPage() {
           <div className="mb-5 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-white/80">{greeting}</p>
-              <h2 className="mt-1 text-2xl font-semibold">All your home, in one place</h2>
+              <h2 className="mt-1 text-2xl font-semibold">The Intelligence Behind Household Wealth</h2>
               <p className="mt-2 max-w-xs text-sm text-white/80">
                 Track groceries, compare prices, plan meals and keep your household budget in one place.
               </p>

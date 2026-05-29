@@ -1,7 +1,7 @@
 {
-  "name": "Omni",
-  "short_name": "Omni",
-  "description": "Omni — All your home, in one place. AI-powered smart shopping and life organiser for Indian households.",
+  "name": "Oikos",
+  "short_name": "Oikos",
+  "description": "Oikos — The Intelligence Behind Household Wealth. AI-powered smart shopping and life organiser for Indian households.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FAF7F2",
@@ -9,19 +9,19 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/omni-icon-192.png",
+      "src": "/oikos-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/omni-icon-512.png",
+      "src": "/oikos-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/omni-icon.svg",
+      "src": "/oikos-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -41,10 +41,10 @@
       "description": "Check Indian grocery prices across platforms"
     },
     {
-      "name": "Ask Omni",
+      "name": "Ask Oikos",
       "short_name": "Assistant",
       "url": "/assistant",
-      "description": "Chat with Omni for recipes and budget advice"
+      "description": "Chat with Oikos for recipes and budget advice"
     }
   ]
 }

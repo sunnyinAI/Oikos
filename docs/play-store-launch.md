@@ -5,14 +5,14 @@ Current status:
 - The local runnable app is the `client` + `server` PWA/Express app.
 - The app has PWA metadata at `client/public/manifest.json`.
 - Standard `192x192` and `512x512` PNG icons are now available for PWA/TWA tooling.
-- The service worker now caches Omni assets instead of the old Quantis icon.
+- The service worker now caches Oikos assets instead of the old Quantis icon.
 - Authenticated account deletion is now available at `DELETE /api/auth/account` and in the Settings screen.
 - A public account-deletion information page is available at `/account-deletion.html`.
 
 ## Recommended Packaging Path
 
 Use a Trusted Web Activity (TWA) with Bubblewrap. This is the lowest-risk route
-because Omni is already a mobile-first PWA and the backend must remain online
+because Oikos is already a mobile-first PWA and the backend must remain online
 for account, grocery, pantry, finance, mandi, meal, and assistant features.
 
 The Android app bundle will point to the production HTTPS web app URL.
@@ -21,8 +21,8 @@ The Android app bundle will point to the production HTTPS web app URL.
 
 Before generating the Play-ready Android App Bundle, decide these values:
 
-- Production HTTPS URL, for example `https://omni.example.com`
-- Android package name, for example `in.yourcompany.omni`
+- Production HTTPS URL, for example `https://oikos.example.com`
+- Android package name, for example `in.yourcompany.oikos`
 - Google Play developer account owner
 - App signing approach in Play Console
 - Developer/contact email
@@ -39,7 +39,7 @@ The included `render.yaml` deploys one Render web service backed by Render
 Postgres. Render will provide a URL like:
 
 ```text
-https://omni.onrender.com
+https://oikos.onrender.com
 ```
 
 To create that URL:
@@ -121,7 +121,7 @@ from Play Console, not only the local upload key.
 
 ## Data Safety Notes
 
-Omni can collect or store:
+Oikos can collect or store:
 
 - Phone number for OTP login.
 - Profile and household preferences.

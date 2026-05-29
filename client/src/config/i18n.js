@@ -1,8 +1,8 @@
 const translations = {
   en: {
     // App
-    appName: 'Omni',
-    tagline: 'All your home, in one place',
+    appName: 'Oikos',
+    tagline: 'The Intelligence Behind Household Wealth',
     // Nav
     home: 'Home',
     grocery: 'Grocery',
@@ -12,7 +12,7 @@ const translations = {
     finance: 'Finance',
     mandi: 'Mandi',
     meals: 'Meals',
-    askHundi: 'Ask Omni',
+    askHundi: 'Ask Oikos',
     settings: 'Settings',
     // Actions
     add: 'Add',
@@ -93,8 +93,8 @@ const translations = {
   },
   hi: {
     // App
-    appName: 'खर्चा',
-    tagline: 'सब कुछ, एक जगह',
+    appName: 'Oikos',
+    tagline: 'The Intelligence Behind Household Wealth',
     // Nav
     home: 'होम',
     grocery: 'किराना',
@@ -104,7 +104,7 @@ const translations = {
     finance: 'हिसाब',
     mandi: 'मंडी',
     meals: 'खाना',
-    askHundi: 'खर्चा से पूछो',
+    askHundi: 'Oikos से पूछो',
     settings: 'सेटिंग्स',
     // Actions
     add: 'जोड़ें',

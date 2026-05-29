@@ -2,7 +2,7 @@ const BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001') + '/ap
 
 const request = async (method: string, path: string, body?: unknown) => {
   const token =
-    typeof window !== 'undefined' ? localStorage.getItem('omni_token') : null;
+    typeof window !== 'undefined' ? localStorage.getItem('oikos_token') : null;
   const res = await fetch(`${BASE}${path}`, {
     method,
     headers: {
@@ -31,7 +31,7 @@ export const streamAssistantChat = async (
   onChunk?: (chunk: string, full: string) => void,
 ) => {
   const token =
-    typeof window !== 'undefined' ? localStorage.getItem('omni_token') : null;
+    typeof window !== 'undefined' ? localStorage.getItem('oikos_token') : null;
   const res = await fetch(`${BASE}/assistant/chat`, {
     method: 'POST',
     headers: {

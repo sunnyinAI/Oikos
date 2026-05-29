@@ -32,8 +32,8 @@ export function buildListShareText({
   const done = items.filter((i) => i.is_checked);
 
   const lines = [];
-  lines.push(`🛒 *${listName}* — Omni`);
-  lines.push(`_सब कुछ, एक जगह_`);
+  lines.push(`🛒 *${listName}* — Oikos`);
+  lines.push(`_The Intelligence Behind Household Wealth_`);
   lines.push('');
 
   if (pending.length > 0) {
@@ -54,14 +54,14 @@ export function buildListShareText({
   }
 
   if (pending.length === 0 && done.length === 0) {
-    lines.push('_Empty list — add items in Omni._');
+    lines.push('_Empty list — add items in Oikos._');
     lines.push('');
   }
 
   if (shareCode) {
-    const base = origin || (typeof window !== 'undefined' ? window.location.origin : 'https://omni.app');
+    const base = origin || (typeof window !== 'undefined' ? window.location.origin : 'https://oikos.app');
     lines.push(`👉 Join this list: ${base}/join/${shareCode}`);
-    lines.push(`Or open Omni and enter code: *${shareCode}*`);
+    lines.push(`Or open Oikos and enter code: *${shareCode}*`);
   }
 
   return lines.join('\n');

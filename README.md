@@ -1,4 +1,4 @@
-# Omni
+# Oikos
 
 Mobile-first web app for Indian household shopping, pantry, mandi prices, budgets and meal planning.
 
@@ -30,8 +30,8 @@ Recommended env vars:
 - `NODE_ENV=production`
 - `SESSION_EXPIRY_DAYS=30`
 - `DEV_OTP_VISIBLE=true` for demo deployments
-- `DB_PATH=/tmp/omni.db` for a free demo deployment
-- `DB_PATH=/var/data/omni.db` if you attach a persistent disk on a paid plan
+- `DB_PATH=/tmp/oikos.db` for a free demo deployment
+- `DB_PATH=/var/data/oikos.db` if you attach a persistent disk on a paid plan
 - `GEMINI_API_KEY=...` for full AI responses
 - `ANTHROPIC_API_KEY=...` optional fallback provider
 
@@ -44,5 +44,5 @@ Recommended env vars:
 
 ## Notes
 
-- Without `GEMINI_API_KEY` (or fallback `ANTHROPIC_API_KEY`), the app still works with local fallback responses for Ask Omni and meal planning.
+- Without `GEMINI_API_KEY` (or fallback `ANTHROPIC_API_KEY`), the app still works with local fallback responses for Ask Oikos and meal planning.
 - The current backend uses SQLite for demo speed. For long-term production, move to Postgres.

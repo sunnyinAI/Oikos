@@ -13,7 +13,7 @@ export default function NotificationsCard() {
 
   const refresh = async () => {
     const perm = typeof Notification !== 'undefined' ? Notification.permission : 'denied';
-    const hasToken = Boolean(localStorage.getItem('omni_push_token'));
+    const hasToken = Boolean(localStorage.getItem('oikos_push_token'));
     const avail = await isPushAvailable();
     let admin = { ready: false, error: null };
     try { admin = await getPushAdminStatus(); } catch { /* noop */ }

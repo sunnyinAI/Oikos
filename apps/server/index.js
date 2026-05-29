@@ -34,12 +34,12 @@ app.use('/api/affiliate', require('./routes/affiliate'));
 app.use('/api/push', require('./routes/push'));
 
 app.get('/api', (req, res) => res.json({
-  app: 'Omni API',
+  app: 'Oikos API',
   version: '1.0.0',
   status: 'running',
   docs: '/api/health',
 }));
-app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Omni' }));
+app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Oikos' }));
 
 if (process.env.NODE_ENV === 'production') {
   const clientDist = path.join(__dirname, '..', '..', 'client', 'dist');
@@ -57,7 +57,7 @@ const PORT = process.env.PORT || 3001;
 
 runMigrations()
   .then(() => {
-    app.listen(PORT, () => console.log(`🪔 Omni API running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`🪔 Oikos API running on port ${PORT}`));
   })
   .catch((err) => {
     console.error('Fatal: DB migration failed after all retries', err.message);

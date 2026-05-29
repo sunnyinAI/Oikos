@@ -7,21 +7,21 @@ import { useOffline } from '@/hooks/useOffline';
 import ToastProvider from '@/components/ui/ToastProvider';
 
 const PAGE_TITLES: Record<string, string> = {
-  '/': 'Omni',
+  '/': 'Oikos',
   '/grocery': 'Grocery List',
   '/prices': 'Price Compare',
   '/pantry': 'Pantry',
   '/finance': 'Finance',
   '/mandi': 'Mandi Prices',
   '/meals': 'Meal Planner',
-  '/assistant': 'Ask Omni',
+  '/assistant': 'Ask Oikos',
   '/settings': 'Settings',
 };
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isOffline = useOffline();
-  const title = PAGE_TITLES[pathname] || 'Omni';
+  const title = PAGE_TITLES[pathname] || 'Oikos';
 
   return (
     <div className="flex flex-col min-h-screen min-h-dvh">

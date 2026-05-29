@@ -67,7 +67,7 @@ const sendToUser = async (userId, { title, body, url, data = {} }) => {
     },
     webpush: {
       fcmOptions: { link: url || '/' },
-      notification: { icon: '/omni-icon-192.png', badge: '/omni-icon-192.png' },
+      notification: { icon: '/oikos-icon-192.png', badge: '/oikos-icon-192.png' },
     },
   };
 

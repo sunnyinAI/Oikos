@@ -7,14 +7,14 @@ import InstallPrompt from '../ui/InstallPrompt';
 import PushPermissionBanner from '../ui/PushPermissionBanner';
 
 const PAGE_TITLES = {
-  '/': 'Omni',
+  '/': 'Oikos',
   '/grocery': 'Grocery List',
   '/prices': 'Price Compare',
   '/pantry': 'Pantry',
   '/finance': 'Finance',
   '/mandi': 'Mandi Prices',
   '/meals': 'Meal Planner',
-  '/assistant': 'Ask Omni',
+  '/assistant': 'Ask Oikos',
   '/collaborate': 'Share List',
   '/settings': 'Settings',
 };
@@ -22,7 +22,7 @@ const PAGE_TITLES = {
 export default function AppShell() {
   const location = useLocation();
   const isOffline = useOffline();
-  const title = PAGE_TITLES[location.pathname] || 'Omni';
+  const title = PAGE_TITLES[location.pathname] || 'Oikos';
 
   return (
     <div className="flex flex-col min-h-screen min-h-dvh">

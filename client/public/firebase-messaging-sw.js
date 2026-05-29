@@ -1,4 +1,4 @@
-// Firebase Messaging Service Worker for Omni (Web Push / FCM).
+// Firebase Messaging Service Worker for Oikos (Web Push / FCM).
 // IMPORTANT: This file is fetched directly by the browser. It cannot import
 // from your app build. The config below is intentionally fetched at runtime
 // from your own API so you don't have to bake secrets into a static file.
@@ -18,11 +18,11 @@ async function init() {
     const messaging = firebase.messaging();
     messaging.onBackgroundMessage((payload) => {
       const { notification, data } = payload || {};
-      const title = notification?.title || data?.title || 'Omni';
+      const title = notification?.title || data?.title || 'Oikos';
       const options = {
         body: notification?.body || data?.body || '',
-        icon: '/omni-icon-192.png',
-        badge: '/omni-icon-192.png',
+        icon: '/oikos-icon-192.png',
+        badge: '/oikos-icon-192.png',
         data: data || {},
       };
       self.registration.showNotification(title, options);

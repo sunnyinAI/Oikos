@@ -1,12 +1,12 @@
 databases:
-  - name: omni-db
+  - name: oikos-db
     plan: free
-    databaseName: omni
-    user: omni
+    databaseName: oikos
+    user: oikos
 
 services:
   - type: web
-    name: omni
+    name: oikos
     runtime: node
     plan: free
     buildCommand: npm ci --include=dev && npm ci --prefix client && npm ci --prefix apps/server && npm run build --prefix client
@@ -23,15 +23,15 @@ services:
         value: "false"
       - key: SESSION_EXPIRY_DAYS
         value: "30"
-      # Postgres connection injected by the omni-db service above
+      # Postgres connection injected by the oikos-db service above
       - key: DATABASE_URL
         fromDatabase:
-          name: omni-db
+          name: oikos-db
           property: connectionString
       # Allowed Origin list — web + Android WebView both need to be reachable.
       # capacitor://localhost is what the packaged Android app reports as origin.
       - key: CORS_ORIGINS
-        value: "https://omni.onrender.com,capacitor://localhost,https://localhost,http://localhost"
+        value: "https://oikos.onrender.com,capacitor://localhost,https://localhost,http://localhost"
       # ---------- AI keys ----------
       - key: GEMINI_API_KEY
         sync: false

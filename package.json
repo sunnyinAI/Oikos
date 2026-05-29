@@ -1,5 +1,5 @@
 {
-  "name": "omni",
+  "name": "oikos",
   "private": true,
   "packageManager": "npm@10.8.2",
   "workspaces": [
@@ -11,12 +11,12 @@
   },
   "scripts": {
     "dev": "concurrently -k -n web,api -c blue,magenta \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
-    "dev:pg": "turbo run dev --filter=@omni/web --filter=@omni/server",
+    "dev:pg": "turbo run dev --filter=@oikos/web --filter=@oikos/server",
     "dev:all": "turbo run dev",
     "build": "turbo run build",
-    "build:web": "turbo run build --filter=@omni/web",
+    "build:web": "turbo run build --filter=@oikos/web",
     "build:client": "npm run build --prefix client",
-    "start": "turbo run start --filter=@omni/server",
+    "start": "turbo run start --filter=@oikos/server",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "android:init": "npm run build:client && npx cap add android",

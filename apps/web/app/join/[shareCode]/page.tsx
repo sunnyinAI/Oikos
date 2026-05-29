@@ -23,7 +23,7 @@ export default function JoinListPage() {
   useEffect(() => {
     if (!shareCode) { setStatus('error'); setMessage('Share code is missing.'); return; }
 
-    const stored = token || (typeof window !== 'undefined' ? localStorage.getItem('omni_token') : null);
+    const stored = token || (typeof window !== 'undefined' ? localStorage.getItem('oikos_token') : null);
     if (!stored) {
       if (typeof window !== 'undefined') sessionStorage.setItem('pendingShareCode', shareCode);
       router.replace('/login');

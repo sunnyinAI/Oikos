@@ -113,7 +113,7 @@ export default function MealsPage() {
               Build an Indian meal plan in one tap
             </h2>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-              Omni uses saved pantry items and household preferences to suggest
+              Oikos uses saved pantry items and household preferences to suggest
               breakfast, lunch and dinner for the full week.
             </p>
           </div>

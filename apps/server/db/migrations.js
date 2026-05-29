@@ -3,7 +3,7 @@ const runMigrations = (db) => {
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       phone TEXT UNIQUE NOT NULL,
-      name TEXT DEFAULT 'Omni User',
+      name TEXT DEFAULT 'Oikos User',
       language TEXT DEFAULT 'en',
       dark_mode INTEGER DEFAULT 0,
       dietary_pref TEXT DEFAULT 'vegetarian',

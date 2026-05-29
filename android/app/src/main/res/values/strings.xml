@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Kharcha</string>
-    <string name="title_activity_main">Kharcha</string>
-    <string name="package_name">com.kharcha.app</string>
-    <string name="custom_url_scheme">com.kharcha.app</string>
+    <string name="app_name">Oikos</string>
+    <string name="title_activity_main">Oikos</string>
+    <string name="package_name">com.oikos.app</string>
+    <string name="custom_url_scheme">com.oikos.app</string>
 </resources>

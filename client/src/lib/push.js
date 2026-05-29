@@ -1,4 +1,4 @@
-// Firebase Cloud Messaging (Web) integration for Omni.
+// Firebase Cloud Messaging (Web) integration for Oikos.
 // Lazy-loads firebase so the SDK is only paid for if the user opts in.
 
 import { getPushConfig, registerPushToken, unregisterPushToken } from './api';
@@ -68,15 +68,15 @@ export async function enablePush() {
   });
   if (!token) throw new Error('Could not obtain push token');
   await registerPushToken(token, 'web');
-  localStorage.setItem('omni_push_token', token);
+  localStorage.setItem('oikos_push_token', token);
   return token;
 }
 
 export async function disablePush() {
-  const token = localStorage.getItem('omni_push_token');
+  const token = localStorage.getItem('oikos_push_token');
   if (token) {
     try { await unregisterPushToken(token); } catch { /* noop */ }
-    localStorage.removeItem('omni_push_token');
+    localStorage.removeItem('oikos_push_token');
   }
 }
 

@@ -129,7 +129,7 @@ export const useGroceryStore = create<GroceryState>()(
       setActiveList: (id) => set({ activeListId: id }),
     }),
     {
-      name: 'omni-grocery',
+      name: 'oikos-grocery',
       partialize: (s) => ({ activeListId: s.activeListId }),
     },
   ),

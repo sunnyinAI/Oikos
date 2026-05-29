@@ -39,9 +39,9 @@ const buildVendorUrl = (vendor, query) => {
   const tag = process.env[`AFFILIATE_TAG_${vendor.toUpperCase()}`];
   const sep = url.includes('?') ? '&' : '?';
   if (tag) {
-    url += `${sep}utm_source=omni&utm_medium=affiliate&utm_campaign=${encodeURIComponent(tag)}`;
+    url += `${sep}utm_source=oikos&utm_medium=affiliate&utm_campaign=${encodeURIComponent(tag)}`;
   } else {
-    url += `${sep}utm_source=omni`;
+    url += `${sep}utm_source=oikos`;
   }
   return url;
 };

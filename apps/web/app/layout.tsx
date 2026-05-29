@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Omni — All your home, in one place',
+  title: 'Oikos — The Intelligence Behind Household Wealth',
   description: 'AI-powered smart shopping and life organiser for Indian households.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Omni',
+    title: 'Oikos',
   },
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const s = localStorage.getItem('omni-ui');
+                const s = localStorage.getItem('oikos-ui');
                 if (s && JSON.parse(s)?.state?.darkMode) {
                   document.documentElement.classList.add('dark');
                 }

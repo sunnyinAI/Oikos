@@ -1,10 +1,10 @@
-const CACHE_NAME = 'omni-static-v3';
+const CACHE_NAME = 'oikos-static-v3';
 const APP_SHELL = [
   '/',
   '/manifest.json',
-  '/omni-icon.svg',
-  '/omni-icon-192.png',
-  '/omni-icon-512.png',
+  '/oikos-icon.svg',
+  '/oikos-icon-192.png',
+  '/oikos-icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {

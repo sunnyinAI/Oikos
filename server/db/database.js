@@ -3,8 +3,8 @@ const path = require('path');
 const { runMigrations } = require('./migrations');
 
 const defaultDbPath = process.env.RENDER_DISK_ROOT
-  ? path.join(process.env.RENDER_DISK_ROOT, 'omni.db')
-  : path.join(__dirname, '..', '..', 'omni.db');
+  ? path.join(process.env.RENDER_DISK_ROOT, 'oikos.db')
+  : path.join(__dirname, '..', '..', 'oikos.db');
 const DB_PATH = process.env.DB_PATH || defaultDbPath;
 
 let db;

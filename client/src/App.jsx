@@ -43,7 +43,7 @@ function SyncUserPreferences() {
 
 function RequireAuth() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('omni_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('oikos_token');
   const onboardingComplete = useUIStore((state) => state.onboardingComplete);
   const location = useLocation();
 
@@ -60,7 +60,7 @@ function RequireAuth() {
 
 function GuestOnly() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('omni_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('oikos_token');
 
   if (token) {
     return <Navigate to="/" replace />;
@@ -71,7 +71,7 @@ function GuestOnly() {
 
 function NotFoundRedirect() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('omni_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('oikos_token');
 
   return <Navigate to={token ? '/' : '/login'} replace />;
 }

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Oikos app icon</title>
+  <desc id="desc">Deep teal rounded square with a white Greek omega mark</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E7490" />
+      <stop offset="55%" stop-color="#0C3547" />
+      <stop offset="100%" stop-color="#071E2B" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="30" fill="url(#bg)" />
+  <circle cx="100" cy="28" r="8" fill="#9fe8ff" opacity="0.85" />
+  <text x="64" y="94" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#f0f8ff">Ω</text>
+</svg>
