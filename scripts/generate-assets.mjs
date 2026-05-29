@@ -1,19 +1,17 @@
 #!/usr/bin/env node
-/**
- * Generate every icon + splash size Kharcha needs, from a single 512x512 source PNG.
- *
- * Usage:
- *   node scripts/generate-assets.mjs               # uses brand/icon-source.png
- *   node scripts/generate-assets.mjs path/to.png   # custom source
- *
- * Output:
- *   - Android mipmap-* (legacy 4 densities)            android/app/src/main/res/mipmap-*/ic_launcher.png
- *   - Android mipmap-anydpi-v26 adaptive icon          (foreground + background xmls preserved)
- *   - Android splash (drawable-port/land for 5 dpis)   android/app/src/main/res/drawable-{port,land}-*/splash.png
- *   - PWA + Apple touch                                client/public/kharcha-icon-{192,512,180,1024}.png
- *
- * Requires: `sharp` (auto-installed if missing).
- */
+// Generate every icon + splash size Kharcha needs from a single source PNG.
+//
+// Usage:
+//   node scripts/generate-assets.mjs                 // uses brand/icon-source.png
+//   node scripts/generate-assets.mjs path/to.png     // custom source
+//
+// Output:
+//   - Android mipmap densities  (legacy + round + adaptive foreground)
+//   - Adaptive icon XML + brand background color
+//   - Android splash PNGs       (drawable-port + drawable-land, 5 dpis)
+//   - PWA icons                 (client/public/kharcha-icon-{192,512,180,1024}.png)
+//
+// Requires `sharp` (auto-installs on first run if missing).
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';

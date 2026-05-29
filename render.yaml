@@ -17,7 +17,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
-        value: "20.20.0"
+        value: "22.12.0"
       # Disable DEV_OTP in production. Toggle to "true" only for demos.
       - key: DEV_OTP_VISIBLE
         value: "false"
