@@ -9,6 +9,7 @@ import {
 import AppShell from './components/layout/AppShell';
 import AssistantPage from './pages/AssistantPage';
 import DashboardPage from './pages/DashboardPage';
+import OnboardingPage from './pages/OnboardingPage';
 import FinancePage from './pages/FinancePage';
 import GroceryPage from './pages/GroceryPage';
 import JoinListPage from './pages/JoinListPage';
@@ -43,10 +44,15 @@ function SyncUserPreferences() {
 function RequireAuth() {
   const token =
     useAuthStore((state) => state.token) || localStorage.getItem('kharcha_token');
+  const onboardingComplete = useUIStore((state) => state.onboardingComplete);
   const location = useLocation();
 
   if (!token) {
     return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  if (!onboardingComplete && location.pathname !== '/onboarding') {
+    return <Navigate to="/onboarding" replace />;
   }
 
   return <Outlet />;
@@ -83,6 +89,7 @@ export default function App() {
         <Route path="/join/:shareCode" element={<JoinListPage />} />
 
         <Route element={<RequireAuth />}>
+          <Route path="/onboarding" element={<OnboardingPage />} />
           <Route element={<AppShell />}>
             <Route index element={<DashboardPage />} />
             <Route path="/grocery" element={<GroceryPage />} />

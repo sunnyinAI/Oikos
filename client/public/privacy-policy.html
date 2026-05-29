@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#6366F1" />
+    <title>Kharcha Privacy Policy</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --brand: #6366F1;
+        --brand-dark: #4338CA;
+        --bg: #FAF7F2;
+        --ink: #111827;
+        --muted: #6B7280;
+        --line: #E5E7EB;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: start center; padding: 32px 20px; }
+      main { width: min(100%, 820px); background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 36px 32px; box-shadow: 0 14px 44px rgba(17, 24, 39, 0.08); }
+      header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+      .badge { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #6366F1, #8B5CF6 60%, #10B981); display: grid; place-items: center; color: white; font-weight: 800; font-family: "Noto Sans Devanagari", sans-serif; box-shadow: 0 8px 22px -8px rgba(99,102,241,0.55); }
+      h1 { margin: 0; color: var(--ink); font-size: clamp(26px, 4.5vw, 36px); line-height: 1.15; letter-spacing: -0.01em; }
+      h2 { margin: 28px 0 8px; color: var(--ink); font-size: 19px; }
+      h3 { margin: 18px 0 6px; font-size: 16px; color: var(--brand-dark); }
+      p, li { font-size: 15.5px; line-height: 1.65; color: #1F2937; }
+      ul { padding-left: 22px; }
+      a { color: var(--brand); font-weight: 600; }
+      a:hover { color: var(--brand-dark); }
+      .updated { color: var(--muted); font-size: 13px; margin: 0; }
+      .pill { display: inline-block; background: #EEF2FF; color: var(--brand-dark); padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 2px 4px 2px 0; }
+      .callout { background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #F59E0B; border-radius: 10px; padding: 12px 16px; margin: 14px 0; font-size: 14.5px; }
+      table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14.5px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { background: #F9FAFB; font-weight: 600; }
+      footer { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="badge">ख</div>
+        <div>
+          <h1>Kharcha Privacy Policy</h1>
+          <p class="updated">Effective date: <strong>29 May 2026</strong> · Last updated: <strong>29 May 2026</strong></p>
+        </div>
+      </header>
+
+      <p>
+        Kharcha (<em>"Kharcha", "we", "us"</em>) is a household-management app for Indian families — grocery lists, pantry tracking, bill scanning, budgeting and meal planning. This policy explains exactly what data we collect, why, who can see it, and how to delete it. We have written it in plain language because we believe you should be able to read it in under five minutes.
+      </p>
+
+      <div class="callout">
+        <strong>The short version:</strong> we collect only what we need to run the app, we never sell your data, and you can delete your account at any time from Settings → Delete Account or by emailing us.
+      </div>
+
+      <h2>1. What we collect, and why</h2>
+
+      <table>
+        <tr><th>Data</th><th>Purpose</th><th>Who can see it</th></tr>
+        <tr><td>Phone number</td><td>Sign-in via OTP</td><td>You, our backend</td></tr>
+        <tr><td>Name (optional)</td><td>Personalised greetings</td><td>You, your family list members</td></tr>
+        <tr><td>Grocery lists & items</td><td>Core app function; shared with family if you invite them</td><td>You + invited members</td></tr>
+        <tr><td>Pantry items & expiry dates</td><td>Expiry alerts, recipe suggestions</td><td>You</td></tr>
+        <tr><td>Transactions, bills, subscriptions</td><td>Budget tracking</td><td>You</td></tr>
+        <tr><td>Bill photos you scan</td><td>Single-use OCR to extract items + total</td><td>You + AI provider (see §3)</td></tr>
+        <tr><td>Assistant chat messages</td><td>To generate replies</td><td>You + AI provider (see §3)</td></tr>
+        <tr><td>Voice transcripts</td><td>Voice-to-text item entry; runs in browser, never uploaded</td><td>You only</td></tr>
+        <tr><td>Push-notification token</td><td>To send alerts you opted into</td><td>You + Firebase</td></tr>
+        <tr><td>Affiliate click events</td><td>Internal analytics on which "Buy on…" links you tap</td><td>Our backend (anonymised in aggregate)</td></tr>
+        <tr><td>Device & technical data</td><td>Crash diagnostics, security</td><td>Our backend</td></tr>
+      </table>
+
+      <h3>What we do NOT collect</h3>
+      <ul>
+        <li>We do not access your contacts, photos library (beyond images you explicitly upload), location, microphone (voice recognition runs locally in the browser), camera (beyond images you explicitly capture), call logs, SMS, or banking credentials.</li>
+        <li>We do not place advertising trackers.</li>
+        <li>We do not sell, rent or trade your personal data to data brokers.</li>
+      </ul>
+
+      <h2>2. How we use information</h2>
+      <ul>
+        <li>To provide and personalise the app (lists, budgets, meal suggestions).</li>
+        <li>To authenticate you and keep your data secure.</li>
+        <li>To send notifications you have opted into (price drops, expiry alerts, bill reminders, family activity).</li>
+        <li>To diagnose crashes and improve reliability.</li>
+        <li>To comply with applicable law.</li>
+      </ul>
+
+      <h2>3. Third-party services we use</h2>
+      <p>To run the app, we send specific data to the following processors. Each is bound by their own terms and data-protection commitments.</p>
+      <table>
+        <tr><th>Service</th><th>What we send</th><th>Why</th></tr>
+        <tr><td><strong>Google Gemini</strong> (Generative AI)</td><td>Your assistant questions; bill images you scan; meal-plan inputs</td><td>To generate replies, extract bill data, generate meal plans</td></tr>
+        <tr><td><strong>Anthropic Claude</strong> (optional fallback)</td><td>Same as above, only if Gemini is unavailable</td><td>Reliability fallback</td></tr>
+        <tr><td><strong>Firebase Cloud Messaging</strong> (Google)</td><td>Your device push token; notification payloads</td><td>To deliver notifications</td></tr>
+        <tr><td><strong>Render</strong> (hosting)</td><td>All backend traffic</td><td>To host the API and database</td></tr>
+        <tr><td><strong>Affiliate networks</strong> (Blinkit, Zepto, BigBasket, Instamart, Amazon Fresh)</td><td>The product name you searched, when you tap "Buy on…"</td><td>To open the vendor's app/site with your query pre-filled; small commissions help us keep Kharcha free</td></tr>
+      </table>
+      <p>
+        Bill images and assistant prompts are sent to AI providers <em>for the specific request you initiated</em>. We do not use your private data to train these models. Provider retention policies apply to their copy; ours are described in §6.
+      </p>
+
+      <h2>4. Family sharing</h2>
+      <p>
+        If you invite family members to a grocery list using a share code or WhatsApp link, those members can see and edit items in <em>that list only</em>. They cannot see your finances, pantry, chat history, or other lists. Removing a member from the list immediately revokes their access.
+      </p>
+
+      <h2>5. Data security</h2>
+      <ul>
+        <li>All traffic uses HTTPS. We do not accept plaintext connections in production.</li>
+        <li>Session tokens are stored encrypted on your device and rotate.</li>
+        <li>Database access is firewalled and reachable only by our application service.</li>
+        <li>Service-provider keys (e.g. Firebase admin) live as encrypted env vars on our host, never in source code or device.</li>
+        <li>We use phone-OTP authentication; we do not store passwords.</li>
+      </ul>
+      <p>No system is 100% secure. If we discover a breach affecting your data, we will notify affected users within 72 hours.</p>
+
+      <h2>6. Data retention</h2>
+      <ul>
+        <li>Account data is retained while your account is active.</li>
+        <li>Assistant chat history is retained for up to 90 days; we may keep aggregated, de-identified usage stats indefinitely.</li>
+        <li>Bill images are processed for OCR and <strong>not stored on our servers</strong> after extraction completes. Only the structured items + total you confirm are stored.</li>
+        <li>Push tokens are deleted when you turn off notifications or uninstall.</li>
+        <li>Affiliate click logs are retained for 12 months for fraud-prevention and revenue reconciliation, then deleted.</li>
+        <li>On account deletion: all your personal data is permanently removed within 30 days (see §8).</li>
+      </ul>
+
+      <h2>7. Your rights</h2>
+      <ul>
+        <li><strong>Access:</strong> request a copy of your data by emailing <a href="mailto:support@kharcha.app">support@kharcha.app</a>.</li>
+        <li><strong>Correction:</strong> update your name, language, dietary preference, budget and household size in <em>Settings</em>.</li>
+        <li><strong>Deletion:</strong> see §8.</li>
+        <li><strong>Notification opt-out:</strong> turn off push from <em>Settings → Notifications</em> or your device settings.</li>
+        <li><strong>Withdraw consent:</strong> stop using the app or delete your account at any time. You will not be penalised.</li>
+      </ul>
+      <p>If you are in the EEA, UK, or California, you may have additional rights under GDPR / UK GDPR / CCPA. Email us and we will honour them.</p>
+
+      <h2>8. Account &amp; data deletion</h2>
+      <p>
+        You can delete your account directly from the app at any time:
+      </p>
+      <ol>
+        <li>Open Kharcha → <strong>Settings</strong></li>
+        <li>Scroll to <strong>Delete Account</strong></li>
+        <li>Type <code>DELETE</code> to confirm</li>
+      </ol>
+      <p>
+        Alternatively, follow the web instructions at
+        <a href="/account-deletion.html">/account-deletion.html</a>
+        or email <a href="mailto:support@kharcha.app">support@kharcha.app</a> from the phone number on the account.
+      </p>
+      <p>
+        On deletion: all personally identifiable data — profile, lists, pantry items, finance records, push tokens, chat history, affiliate logs — is permanently removed from our active systems within 30 days. Anonymised aggregate statistics (e.g. "total bills scanned in May") may be retained.
+      </p>
+
+      <h2>9. Children</h2>
+      <p>Kharcha is intended for users aged 13 and older. We do not knowingly collect data from children under 13. If you believe a child has provided us data, please email us and we will delete it.</p>
+
+      <h2>10. International transfers</h2>
+      <p>Our servers are hosted by Render (United States). When you use the app from India or elsewhere, your data will be transferred to and processed in the country where our hosting provider operates.</p>
+
+      <h2>11. Changes to this policy</h2>
+      <p>We may update this policy. Material changes will be highlighted in the app and the revised effective date will appear at the top of this page. Continued use after a change constitutes acceptance.</p>
+
+      <h2>12. Contact us</h2>
+      <p>
+        <strong>Email:</strong> <a href="mailto:support@kharcha.app">support@kharcha.app</a><br />
+        <strong>Subject lines we read fastest:</strong> "Privacy", "Delete my account", "Data request".
+      </p>
+
+      <footer>
+        Kharcha is a small independent product. We read every privacy email personally.
+      </footer>
+    </main>
+  </body>
+</html>

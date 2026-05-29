@@ -4,8 +4,8 @@
   "description": "Kharcha — Apna Ghar, Apna Hisaab. AI-powered smart shopping and life organiser for Indian households.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F5F5F0",
-  "theme_color": "#FF9933",
+  "background_color": "#FAF7F2",
+  "theme_color": "#6366F1",
   "orientation": "portrait-primary",
   "icons": [
     {

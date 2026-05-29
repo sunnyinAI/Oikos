@@ -4,103 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#6366F1" />
     <title>Delete Your Kharcha Account</title>
     <style>
       :root {
         color-scheme: light;
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #f7f7f2;
-        color: #1f2937;
+        --brand: #6366F1;
+        --brand-dark: #4338CA;
+        --money: #10B981;
+        --bg: #FAF7F2;
+        --ink: #111827;
+        --muted: #6B7280;
+        --line: #E5E7EB;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
       }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-      }
-
-      main {
-        width: min(100%, 680px);
-        background: #fff;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        padding: 32px;
-        box-shadow: 0 12px 40px rgba(17, 24, 39, 0.08);
-      }
-
-      h1 {
-        margin: 0 0 12px;
-        color: #111827;
-        font-size: clamp(28px, 5vw, 40px);
-        line-height: 1.1;
-      }
-
-      h2 {
-        margin: 28px 0 10px;
-        color: #111827;
-        font-size: 20px;
-      }
-
-      p,
-      li {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-
-      ol,
-      ul {
-        padding-left: 22px;
-      }
-
-      a {
-        color: #c25f00;
-        font-weight: 700;
-      }
-
-      .updated {
-        color: #6b7280;
-        font-size: 14px;
-      }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: start center; padding: 32px 20px; }
+      main { width: min(100%, 720px); background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 36px 32px; box-shadow: 0 14px 44px rgba(17, 24, 39, 0.08); }
+      header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+      .badge { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #6366F1, #8B5CF6 60%, #10B981); display: grid; place-items: center; color: white; font-weight: 800; font-family: "Noto Sans Devanagari", sans-serif; box-shadow: 0 8px 22px -8px rgba(99,102,241,0.55); }
+      h1 { margin: 0; font-size: clamp(26px, 4.5vw, 36px); line-height: 1.15; letter-spacing: -0.01em; }
+      h2 { margin: 28px 0 8px; font-size: 19px; }
+      p, li { font-size: 15.5px; line-height: 1.65; color: #1F2937; }
+      ol, ul { padding-left: 22px; }
+      a { color: var(--brand); font-weight: 600; }
+      a:hover { color: var(--brand-dark); }
+      .updated { color: var(--muted); font-size: 13px; margin: 0; }
+      .step-list { background: #F9FAFB; border: 1px solid var(--line); border-radius: 12px; padding: 18px 24px; margin: 14px 0; }
+      .delete-cta { display: inline-block; background: #FEE2E2; color: #B91C1C; padding: 12px 22px; border-radius: 12px; font-weight: 700; margin: 10px 0; text-decoration: none; border: 1px solid #FECACA; }
+      .delete-cta:hover { background: #FECACA; color: #991B1B; }
+      .callout { background: #ECFDF5; border: 1px solid #A7F3D0; border-left: 4px solid #10B981; border-radius: 10px; padding: 12px 16px; margin: 14px 0; font-size: 14.5px; }
+      footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
     </style>
   </head>
   <body>
     <main>
-      <p class="updated">Last updated: April 22, 2026</p>
-      <h1>Delete Your Kharcha Account</h1>
+      <header>
+        <div class="badge">ख</div>
+        <div>
+          <h1>Delete your Kharcha account</h1>
+          <p class="updated">Last updated: <strong>29 May 2026</strong></p>
+        </div>
+      </header>
+
       <p>
-        Kharcha lets signed-in users permanently delete their account from the
-        app or website.
+        You can delete your Kharcha account and all associated personal data at any time, from inside the app or by emailing us. This page explains how — exactly as required by the Google Play Account Deletion policy.
       </p>
 
-      <h2>How to request deletion</h2>
+      <h2>1. From inside the app (fastest)</h2>
+      <div class="step-list">
+        <ol>
+          <li>Open <strong>Kharcha</strong> on your phone and sign in with the phone number on the account.</li>
+          <li>Tap the <strong>Settings</strong> icon (top right of the home screen).</li>
+          <li>Scroll to the bottom — <strong>Delete Account</strong>.</li>
+          <li>Type <code>DELETE</code> in the confirmation field.</li>
+          <li>Tap <strong>Delete My Account</strong>.</li>
+        </ol>
+      </div>
+      <p>
+        <a class="delete-cta" href="/settings">Open Settings →</a>
+      </p>
+
+      <h2>2. From the website</h2>
       <ol>
-        <li>Open Kharcha and sign in with the phone number used for your account.</li>
-        <li>Go to <strong>Settings</strong>.</li>
-        <li>In <strong>Delete account</strong>, type <strong>DELETE</strong>.</li>
-        <li>Select <strong>Delete My Account</strong>.</li>
+        <li>Go to <a href="/login">the sign-in page</a> and sign in.</li>
+        <li>Open <a href="/settings">Settings</a>.</li>
+        <li>Follow the same steps as above.</li>
       </ol>
 
+      <h2>3. By email (if you cannot sign in)</h2>
       <p>
-        You can start from <a href="/login">the sign-in page</a>. After signing
-        in, open <a href="/settings">Settings</a>.
+        Email <a href="mailto:support@kharcha.app?subject=Delete%20my%20account">support@kharcha.app</a> from the phone number's registered email (if any), or include your phone number and the last 4 characters of your most recent OTP request. We may ask one additional verification question to make sure you own the account. Requests are honoured within 30 days.
       </p>
 
       <h2>What gets deleted</h2>
       <ul>
-        <li>Your profile, phone-based account record, and active sessions.</li>
-        <li>Grocery lists, pantry records, meal plans, chat history, and finance records owned by your account.</li>
-        <li>Your membership in shared grocery lists.</li>
+        <li>Your profile (name, phone number, language, preferences).</li>
+        <li>All your grocery lists, items, pantry records, and meal plans.</li>
+        <li>Your transactions, bills, and subscription records.</li>
+        <li>Your assistant chat history.</li>
+        <li>Your push-notification tokens (you will stop receiving alerts immediately).</li>
+        <li>All active sessions; you will be signed out on every device.</li>
+        <li>Your affiliate click logs and other behavioural data tied to your account.</li>
       </ul>
 
       <h2>What may remain</h2>
+      <ul>
+        <li>Items you added to a grocery list <em>owned by another family member</em> may stay in that shared list — their list, their data.</li>
+        <li>Aggregated, anonymised statistics (e.g. "how many bills were scanned in May"); these cannot be linked back to you.</li>
+        <li>Records we are legally required to retain (e.g. limited tax-related data, fraud-prevention logs) for the minimum period required by law.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>How long does deletion take?</strong> Immediate sign-out and removal from active systems happens within minutes. Full purge from backups and replicated systems completes within 30 days.
+      </div>
+
+      <h2>Need help or have questions?</h2>
       <p>
-        If you contributed items to a grocery list owned by another user, those
-        items may remain in that shared list without your account attached.
-        Data may also be retained when required for security, fraud prevention,
-        legal, or operational reasons.
+        Email <a href="mailto:support@kharcha.app">support@kharcha.app</a>. We respond personally to every deletion email.
       </p>
+      <p>
+        See our <a href="/privacy-policy.html">Privacy Policy</a> for the full details of what we collect, why, and how long we keep it.
+      </p>
+
+      <footer>
+        Deleting your account is final. We do not retain a copy you can restore. If you simply want to take a break, you can sign out and your data will be waiting when you return.
+      </footer>
     </main>
   </body>
 </html>

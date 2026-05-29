@@ -10,6 +10,7 @@ import { DIETARY_PREFS } from '../config/constants';
 import { joinList } from '../lib/api';
 import { useAuthStore } from '../store/useAuthStore';
 import { useUIStore } from '../store/useUIStore';
+import NotificationsCard from '../components/settings/NotificationsCard';
 
 const LANGUAGE_OPTIONS = [
   { value: 'en', label: 'English' },
@@ -196,6 +197,8 @@ export default function SettingsPage() {
           </Button>
         </div>
       </Card>
+
+      <NotificationsCard />
 
       <Card className="px-5 py-5">
         <div className="mb-4 flex items-center gap-3">

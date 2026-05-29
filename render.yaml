@@ -9,23 +9,56 @@ services:
     name: kharcha
     runtime: node
     plan: free
-    buildCommand: npm ci --include=dev && npm ci --prefix client && npm run build --prefix client
+    buildCommand: npm ci --include=dev && npm ci --prefix client && npm ci --prefix apps/server && npm run build --prefix client
     startCommand: node apps/server/index.js
     healthCheckPath: /api/health
+    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
         value: "20.20.0"
+      # Disable DEV_OTP in production. Toggle to "true" only for demos.
       - key: DEV_OTP_VISIBLE
-        value: "true"
+        value: "false"
       - key: SESSION_EXPIRY_DAYS
         value: "30"
+      # Postgres connection injected by the kharcha-db service above
       - key: DATABASE_URL
         fromDatabase:
           name: kharcha-db
           property: connectionString
+      # Allowed Origin list — web + Android WebView both need to be reachable.
+      # capacitor://localhost is what the packaged Android app reports as origin.
+      - key: CORS_ORIGINS
+        value: "https://kharcha.onrender.com,capacitor://localhost,https://localhost,http://localhost"
+      # ---------- AI keys ----------
+      - key: GEMINI_API_KEY
+        sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
-      - key: CORS_ORIGINS
+      # ---------- Firebase Cloud Messaging ----------
+      - key: FIREBASE_API_KEY
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_MESSAGING_SENDER_ID
+        sync: false
+      - key: FIREBASE_APP_ID
+        sync: false
+      - key: FIREBASE_VAPID_KEY
+        sync: false
+      # Paste the FULL service-account JSON file content (Render supports multi-line)
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      # ---------- Affiliate tags (optional) ----------
+      - key: AFFILIATE_TAG_BLINKIT
+        sync: false
+      - key: AFFILIATE_TAG_ZEPTO
+        sync: false
+      - key: AFFILIATE_TAG_BIGBASKET
+        sync: false
+      - key: AFFILIATE_TAG_SWIGGYINSTAMART
+        sync: false
+      - key: AFFILIATE_TAG_AMAZONFRESH
         sync: false

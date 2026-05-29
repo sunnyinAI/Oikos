@@ -28,7 +28,7 @@ const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 300 });
 const aiLimiter = rateLimit({ windowMs: 60 * 1000, max: 10 });
 app.use(limiter);
 
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '10mb' }));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -40,6 +40,9 @@ app.use('/api/mandi', require('./routes/mandi'));
 app.use('/api/meal', require('./routes/meal'));
 app.use('/api/assistant', aiLimiter, require('./routes/assistant'));
 app.use('/api/collaborate', require('./routes/collaborate'));
+app.use('/api/ocr', aiLimiter, require('./routes/ocr'));
+app.use('/api/affiliate', require('./routes/affiliate'));
+app.use('/api/push', require('./routes/push'));
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }));

@@ -114,11 +114,32 @@ const runMigrations = (db) => {
       PRIMARY KEY (list_id, user_id)
     );
 
+    CREATE TABLE IF NOT EXISTS affiliate_clicks (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+      vendor TEXT NOT NULL,
+      product_query TEXT,
+      url TEXT,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS push_tokens (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      token TEXT NOT NULL,
+      platform TEXT DEFAULT 'web',
+      user_agent TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      UNIQUE(user_id, token)
+    );
+
     CREATE INDEX IF NOT EXISTS idx_grocery_items_list ON grocery_items(list_id);
     CREATE INDEX IF NOT EXISTS idx_pantry_user ON pantry_items(user_id);
     CREATE INDEX IF NOT EXISTS idx_transactions_user_date ON transactions(user_id, date);
     CREATE INDEX IF NOT EXISTS idx_bills_user ON bills(user_id);
     CREATE INDEX IF NOT EXISTS idx_chat_user ON chat_history(user_id);
+    CREATE INDEX IF NOT EXISTS idx_affiliate_user ON affiliate_clicks(user_id, created_at);
+    CREATE INDEX IF NOT EXISTS idx_push_user ON push_tokens(user_id);
   `);
 };
 

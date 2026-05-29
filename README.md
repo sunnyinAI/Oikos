@@ -32,7 +32,8 @@ Recommended env vars:
 - `DEV_OTP_VISIBLE=true` for demo deployments
 - `DB_PATH=/tmp/quantis.db` for a free demo deployment
 - `DB_PATH=/var/data/quantis.db` if you attach a persistent disk on a paid plan
-- `ANTHROPIC_API_KEY=...` for full AI responses
+- `GEMINI_API_KEY=...` for full AI responses
+- `ANTHROPIC_API_KEY=...` optional fallback provider
 
 ### Deploy steps
 
@@ -43,5 +44,5 @@ Recommended env vars:
 
 ## Notes
 
-- Without `ANTHROPIC_API_KEY`, the app still works with local fallback responses for Ask Quantis and meal planning.
+- Without `GEMINI_API_KEY` (or fallback `ANTHROPIC_API_KEY`), the app still works with local fallback responses for Ask Quantis and meal planning.
 - The current backend uses SQLite for demo speed. For long-term production, move to Postgres.

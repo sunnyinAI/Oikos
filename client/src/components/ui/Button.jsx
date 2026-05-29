@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Button({ children, variant = 'primary', size = 'md', className = '', loading, disabled, onClick, type = 'button', ...props }) {
   const variants = {
-    primary: 'bg-saffron-500 hover:bg-saffron-600 active:bg-saffron-700 text-white shadow-sm',
+    primary: 'bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white shadow-soft',
     secondary: 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200',
     ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400',
     danger: 'bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-900/20 dark:hover:bg-red-900/30 dark:text-red-400',

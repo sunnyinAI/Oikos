@@ -1,24 +1,32 @@
 const Anthropic = require('@anthropic-ai/sdk');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const {
   buildLocalAssistantReply,
   chunkByWords,
   generateFallbackMealPlan,
 } = require('./localAiService');
 
-let client;
+let anthropicClient;
+let geminiClient;
 
+const hasGeminiConfigured = () => Boolean(process.env.GEMINI_API_KEY?.trim());
 const hasAnthropicConfigured = () => Boolean(process.env.ANTHROPIC_API_KEY?.trim());
+const hasAiConfigured = () => hasGeminiConfigured() || hasAnthropicConfigured();
 
-const getClient = () => {
-  if (!hasAnthropicConfigured()) {
-    return null;
+const getGeminiClient = () => {
+  if (!hasGeminiConfigured()) return null;
+  if (!geminiClient) {
+    geminiClient = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   }
+  return geminiClient;
+};
 
-  if (!client) {
-    client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const getAnthropicClient = () => {
+  if (!hasAnthropicConfigured()) return null;
+  if (!anthropicClient) {
+    anthropicClient = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   }
-
-  return client;
+  return anthropicClient;
 };
 
 const HUNDI_SYSTEM_PROMPT = `You are Kharcha Assistant — a smart, friendly household helper for Indian families.
@@ -46,12 +54,21 @@ Rules:
 Context you have:
 {{CONTEXT}}`;
 
+const GEMINI_MEAL_MODEL = 'gemini-1.5-flash';
+const GEMINI_CHAT_MODEL = 'gemini-1.5-flash';
+const CLAUDE_MODEL = 'claude-sonnet-4-6';
+
+const normalizeToGeminiHistory = (messages) =>
+  messages.map((message) => ({
+    role: message.role === 'assistant' ? 'model' : 'user',
+    parts: [{ text: message.content }],
+  }));
+
 const generateMealPlan = async (pantryItems, preferences, weekStart) => {
-  if (!hasAnthropicConfigured()) {
+  if (!hasAiConfigured()) {
     return generateFallbackMealPlan(pantryItems, preferences, weekStart);
   }
 
-  const claude = getClient();
   const pantryList = pantryItems.length > 0
     ? pantryItems.map((item) => `${item.name} (${item.quantity} ${item.unit})`).join(', ')
     : 'No items tracked yet';
@@ -92,13 +109,25 @@ Return ONLY a valid JSON object in this exact format:
 
 Make it authentic Indian food — variety across the week, include regional dishes, festival-appropriate if relevant. Use pantry items where possible.`;
 
-  const response = await claude.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 4000,
-    messages: [{ role: 'user', content: prompt }],
-  });
+  let text = '';
 
-  const text = response.content[0].text;
+  if (hasGeminiConfigured()) {
+    const gemini = getGeminiClient();
+    const model = gemini.getGenerativeModel({ model: GEMINI_MEAL_MODEL });
+    const response = await model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    });
+    text = response.response.text();
+  } else {
+    const claude = getAnthropicClient();
+    const response = await claude.messages.create({
+      model: CLAUDE_MODEL,
+      max_tokens: 4000,
+      messages: [{ role: 'user', content: prompt }],
+    });
+    text = response.content[0]?.text || '';
+  }
+
   const jsonMatch = text.match(/\{[\s\S]*\}/);
 
   if (!jsonMatch) {
@@ -109,30 +138,48 @@ Make it authentic Indian food — variety across the week, include regional dish
 };
 
 const chatStream = async (messages, context, res) => {
-  if (!hasAnthropicConfigured()) {
+  if (!hasAiConfigured()) {
     const reply = buildLocalAssistantReply(messages, context);
     return chunkByWords(reply, res);
   }
 
-  const claude = getClient();
   const systemPrompt = HUNDI_SYSTEM_PROMPT.replace(
     '{{CONTEXT}}',
     context.rawContext || 'No additional context',
   );
 
-  const stream = claude.messages.stream({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1024,
-    system: systemPrompt,
-    messages,
-  });
-
   let fullText = '';
+  if (hasGeminiConfigured()) {
+    const gemini = getGeminiClient();
+    const model = gemini.getGenerativeModel({
+      model: GEMINI_CHAT_MODEL,
+      systemInstruction: systemPrompt,
+    });
+    const history = normalizeToGeminiHistory(messages.slice(0, -1));
+    const chat = model.startChat({ history });
+    const userPrompt = messages[messages.length - 1]?.content || '';
+    const result = await chat.sendMessageStream(userPrompt);
 
-  for await (const event of await stream) {
-    if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
-      fullText += event.delta.text;
-      res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (!text) continue;
+      fullText += text;
+      res.write(`data: ${JSON.stringify({ text })}\n\n`);
+    }
+  } else {
+    const claude = getAnthropicClient();
+    const stream = claude.messages.stream({
+      model: CLAUDE_MODEL,
+      max_tokens: 1024,
+      system: systemPrompt,
+      messages,
+    });
+
+    for await (const event of await stream) {
+      if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
+        fullText += event.delta.text;
+        res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
+      }
     }
   }
 
@@ -143,5 +190,5 @@ const chatStream = async (messages, context, res) => {
 module.exports = {
   chatStream,
   generateMealPlan,
-  hasAnthropicConfigured,
+  hasAiConfigured,
 };

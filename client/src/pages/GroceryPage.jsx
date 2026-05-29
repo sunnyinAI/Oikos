@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useGroceryStore } from '../store/useGroceryStore';
 import { useUIStore } from '../store/useUIStore';
 import { shareList } from '../lib/api';
+import { buildListShareText, shareViaNative } from '../lib/shareCard';
 import AddItemSheet from '../components/grocery/AddItemSheet';
 import GroceryItem from '../components/grocery/GroceryItem';
 import Button from '../components/ui/Button';
@@ -58,9 +59,18 @@ export default function GroceryPage() {
   const handleShare = async () => {
     if (!activeListId) return;
     try {
-      const { whatsapp_url, share_code } = await shareList(activeListId);
-      addToast(`Share code: ${share_code}`, 'success');
-      window.open(whatsapp_url, '_blank');
+      const { share_code } = await shareList(activeListId);
+      const list = lists.find((l) => l.id === activeListId);
+      const text = buildListShareText({
+        listName: list?.name || 'Family Grocery',
+        items: activeItems,
+        shareCode: share_code,
+      });
+      await shareViaNative({
+        title: `${list?.name || 'Grocery'} — Kharcha`,
+        text,
+      });
+      addToast(`Shared! Code: ${share_code}`, 'success');
     } catch (err) {
       addToast(err.message, 'error');
     }
@@ -127,17 +137,21 @@ export default function GroceryPage() {
               {progress === 100 && <span className="ml-2 text-xs text-kgreen-600 dark:text-kgreen-400 font-medium">🎉 All done!</span>}
             </div>
             <div className="flex gap-2">
-              <button onClick={handleShare} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                <Share2 size={16} className="text-gray-500" />
+              <button
+                onClick={handleShare}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-money-500 px-2.5 py-1.5 text-xs font-semibold text-white shadow-soft hover:bg-money-600 active:scale-95"
+              >
+                <Share2 size={13} />
+                WhatsApp
               </button>
               <button onClick={() => resetList(activeListId)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <RotateCcw size={16} className="text-gray-500" />
               </button>
             </div>
           </div>
-          <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+          <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
             <div
-              className="bg-saffron-500 h-2 rounded-full transition-all duration-500"
+              className="h-2 rounded-full bg-gradient-to-r from-brand-500 to-money-500 transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>

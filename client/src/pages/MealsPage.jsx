@@ -67,11 +67,11 @@ export default function MealsPage() {
       setAiUnavailable(false);
       addToast('Weekly plan generated', 'success');
     } catch (err) {
-      const isAiError = err.message.includes('ANTHROPIC_API_KEY');
+      const isAiError = err.message.includes('GEMINI_API_KEY') || err.message.includes('ANTHROPIC_API_KEY');
       setAiUnavailable(isAiError);
       addToast(
         isAiError
-          ? 'Set ANTHROPIC_API_KEY in the server to generate AI meal plans'
+          ? 'Set GEMINI_API_KEY in the server to generate AI meal plans'
           : err.message,
         'error',
       );
@@ -137,8 +137,8 @@ export default function MealsPage() {
 
       {aiUnavailable && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
-          AI generation is disabled on this machine until `ANTHROPIC_API_KEY` is
-          configured in `.env`. Saved meal plans will still load if they already
+          AI generation is disabled on this machine until `GEMINI_API_KEY` is
+          configured in `.env` (or fallback `ANTHROPIC_API_KEY`). Saved meal plans will still load if they already
           exist.
         </div>
       )}

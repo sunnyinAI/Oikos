@@ -118,3 +118,25 @@ CREATE INDEX IF NOT EXISTS idx_transactions_user_date ON transactions(user_id, d
 CREATE INDEX IF NOT EXISTS idx_bills_user ON bills(user_id);
 CREATE INDEX IF NOT EXISTS idx_chat_user ON chat_history(user_id, created_at);
 CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires_at);
+
+CREATE TABLE IF NOT EXISTS affiliate_clicks (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+  vendor TEXT NOT NULL,
+  product_query TEXT,
+  url TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS push_tokens (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  token TEXT NOT NULL,
+  platform TEXT DEFAULT 'web',
+  user_agent TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(user_id, token)
+);
+
+CREATE INDEX IF NOT EXISTS idx_affiliate_user ON affiliate_clicks(user_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_push_user ON push_tokens(user_id);

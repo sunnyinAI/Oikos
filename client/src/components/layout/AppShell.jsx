@@ -3,6 +3,8 @@ import BottomNav from './BottomNav';
 import TopBar from './TopBar';
 import { useOffline } from '../../hooks/useOffline';
 import ToastProvider from '../ui/ToastProvider';
+import InstallPrompt from '../ui/InstallPrompt';
+import PushPermissionBanner from '../ui/PushPermissionBanner';
 
 const PAGE_TITLES = {
   '/': 'Kharcha',
@@ -26,14 +28,16 @@ export default function AppShell() {
     <div className="flex flex-col min-h-screen min-h-dvh">
       <TopBar title={title} />
       {isOffline && (
-        <div className="bg-amber-500 text-white text-xs text-center py-1 px-4">
+        <div className="bg-accent-500 text-white text-xs font-medium text-center py-1.5 px-4">
           You're offline — some features may not be available
         </div>
       )}
+      <PushPermissionBanner />
       <main className="flex-1 overflow-y-auto">
         <Outlet />
       </main>
       <BottomNav />
+      <InstallPrompt />
       <ToastProvider />
     </div>
   );

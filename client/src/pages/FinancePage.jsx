@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Plus, Trash2, CheckCircle, TrendingDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, Trash2, CheckCircle, TrendingDown, TrendingUp, ChevronLeft, ChevronRight, ScanLine } from 'lucide-react';
+import BillScannerSheet from '../components/finance/BillScannerSheet';
 import { motion } from 'framer-motion';
 import { useFinanceStore } from '../store/useFinanceStore';
 import { useUIStore } from '../store/useUIStore';
@@ -10,6 +11,7 @@ import Chip from '../components/ui/Chip';
 import EmptyState from '../components/ui/EmptyState';
 import { formatCurrency, formatDate, daysUntilDue, formatMonth } from '../lib/formatters';
 import { EXPENSE_CATEGORIES, PAYMENT_METHODS, POPULAR_SUBSCRIPTIONS } from '../config/constants';
+import { playCoinSound } from '../lib/sound';
 
 const TABS = ['Overview', 'Transactions', 'Bills', 'Subscriptions'];
 
@@ -20,6 +22,7 @@ export default function FinancePage() {
   const [showTxSheet, setShowTxSheet] = useState(false);
   const [showBillSheet, setShowBillSheet] = useState(false);
   const [showSubSheet, setShowSubSheet] = useState(false);
+  const [showScanner, setShowScanner] = useState(false);
   const [txForm, setTxForm] = useState({ amount: '', type: 'expense', category: 'grocery', description: '', date: new Date().toISOString().split('T')[0], payment_method: 'upi' });
   const [billForm, setBillForm] = useState({ name: '', amount: '', due_date: '', recurrence: 'monthly', category: 'utility' });
   const [loadingTx, setLoadingTx] = useState(false);
@@ -31,6 +34,7 @@ export default function FinancePage() {
     setLoadingTx(true);
     try {
       await addTransaction({ ...txForm, amount: parseFloat(txForm.amount) });
+      playCoinSound(txForm.type === 'income' ? 'credit' : 'debit');
       setTxForm({ amount: '', type: 'expense', category: 'grocery', description: '', date: new Date().toISOString().split('T')[0], payment_method: 'upi' });
       setShowTxSheet(false);
       addToast('Transaction added', 'success');
@@ -150,9 +154,14 @@ export default function FinancePage() {
             </div>
           )}
 
-          <Button className="w-full" onClick={() => setShowTxSheet(true)}>
-            <Plus size={18} /> Add Expense
-          </Button>
+          <div className="grid grid-cols-2 gap-3">
+            <Button variant="secondary" className="w-full" onClick={() => setShowScanner(true)}>
+              <ScanLine size={18} /> Scan Bill
+            </Button>
+            <Button className="w-full" onClick={() => setShowTxSheet(true)}>
+              <Plus size={18} /> Add Expense
+            </Button>
+          </div>
         </div>
       )}
 
@@ -333,6 +342,8 @@ export default function FinancePage() {
           <Button variant="secondary" className="w-full" onClick={() => setShowSubSheet(false)}>Close</Button>
         </div>
       </Sheet>
+
+      <BillScannerSheet isOpen={showScanner} onClose={() => setShowScanner(false)} />
     </div>
   );
 }

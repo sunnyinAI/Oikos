@@ -88,8 +88,8 @@ export default function AssistantPage() {
           message.id === assistantId
             ? {
                 ...message,
-                content: err.message.includes('ANTHROPIC_API_KEY')
-                  ? 'AI is not configured on the server yet. Add `ANTHROPIC_API_KEY` in `.env` to enable Ask Kharcha.'
+                content: err.message.includes('GEMINI_API_KEY') || err.message.includes('ANTHROPIC_API_KEY')
+                  ? 'AI is not configured on the server yet. Add `GEMINI_API_KEY` in `.env` (or fallback `ANTHROPIC_API_KEY`) to enable Ask Kharcha.'
                   : err.message,
               }
             : message,

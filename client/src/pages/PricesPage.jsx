@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Search, Star, Clock, ShoppingBag } from 'lucide-react';
+import { Search, Star, Clock, ShoppingBag, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { comparePrices } from '../lib/api';
+import { comparePrices, affiliateRedirect } from '../lib/api';
 import { useDebounce } from '../hooks/useDebounce';
 import { useEffect } from 'react';
 import EmptyState from '../components/ui/EmptyState';
 import Spinner from '../components/ui/Spinner';
+import { useUIStore } from '../store/useUIStore';
 
 const QUICK_SEARCHES = ['Tomato', 'Onion', 'Potato', 'Milk', 'Paneer', 'Rice', 'Atta', 'Toor Dal', 'Ghee'];
 
@@ -17,12 +18,43 @@ const PLATFORM_LOGOS = {
   jiomart: '🔵',
 };
 
+// Backend platform key -> affiliate vendor key
+const VENDOR_MAP = {
+  blinkit: 'blinkit',
+  zepto: 'zepto',
+  bigbasket: 'bigbasket',
+  swiggy_instamart: 'swiggyinstamart',
+  jiomart: null, // no affiliate yet
+};
+
+const VENDOR_COLORS = {
+  blinkit: 'bg-yellow-400 hover:bg-yellow-500 text-yellow-950',
+  zepto: 'bg-violet-600 hover:bg-violet-700 text-white',
+  bigbasket: 'bg-lime-600 hover:bg-lime-700 text-white',
+  swiggyinstamart: 'bg-orange-500 hover:bg-orange-600 text-white',
+};
+
 export default function PricesPage() {
   const [query, setQuery] = useState('');
   const [qty, setQty] = useState('1');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const debouncedQuery = useDebounce(query, 600);
+  const addToast = useUIStore((s) => s.addToast);
+
+  const handleBuy = async (platformKey, productName) => {
+    const vendor = VENDOR_MAP[platformKey];
+    if (!vendor) {
+      addToast('Buy link not available for this platform yet', 'info');
+      return;
+    }
+    try {
+      const { url } = await affiliateRedirect(vendor, productName);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      addToast(err.message || 'Could not open link', 'error');
+    }
+  };
 
   useEffect(() => {
     if (!debouncedQuery.trim() || debouncedQuery.length < 2) { setResult(null); return; }
@@ -124,11 +156,21 @@ export default function PricesPage() {
                   <div className="mt-3">
                     <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5">
                       <div
-                        className={`h-1.5 rounded-full ${platform.is_best ? 'bg-kgreen-500' : 'bg-saffron-400'}`}
+                        className={`h-1.5 rounded-full ${platform.is_best ? 'bg-money-500' : 'bg-brand-400'}`}
                         style={{ width: `${Math.max(20, 100 - ((platform.price - Math.min(...available.map(p => p.price))) / Math.max(...available.map(p => p.price)) * 60))}%` }}
                       />
                     </div>
                   </div>
+                  {/* Buy CTA */}
+                  {VENDOR_MAP[platform.platform] && (
+                    <button
+                      onClick={() => handleBuy(platform.platform, result.item)}
+                      className={`mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold shadow-soft transition-all active:scale-95 ${VENDOR_COLORS[VENDOR_MAP[platform.platform]] || 'bg-brand-500 hover:bg-brand-600 text-white'}`}
+                    >
+                      Buy on {platform.name}
+                      <ExternalLink size={14} />
+                    </button>
+                  )}
                 </motion.div>
               ))}
 

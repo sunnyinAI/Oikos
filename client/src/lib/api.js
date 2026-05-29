@@ -144,6 +144,18 @@ export const getFinanceSummary = (month) => get(`/finance/summary?month=${month 
 // Prices
 export const comparePrices = (q, qty, unit) => get(`/prices/compare?q=${encodeURIComponent(q)}&qty=${qty}&unit=${unit}`);
 
+export const scanBill = (image, mimeType) => post('/ocr/bill', { image, mimeType });
+export const getOcrStatus = () => get('/ocr/status');
+
+export const affiliateRedirect = (vendor, query) => post('/affiliate/redirect', { vendor, query });
+
+export const getPushConfig = () => get('/push/config');
+export const registerPushToken = (token, platform = 'web') =>
+  post('/push/register', { token, platform, userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : null });
+export const unregisterPushToken = (token) => post('/push/unregister', { token });
+export const getPushAdminStatus = () => get('/push/admin-status');
+export const sendTestPush = () => post('/push/test', {});
+
 // Mandi
 export const getCommodities = () => get('/mandi/commodities');
 export const getMandiPrices = (commodity, state) => get(`/mandi/prices?commodity=${commodity}&state=${state}`);

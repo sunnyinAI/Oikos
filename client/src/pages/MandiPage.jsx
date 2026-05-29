@@ -58,11 +58,11 @@ export default function MandiPage() {
         <>
           {/* Insight card */}
           {data.insight && (
-            <div className={`rounded-2xl p-4 mb-4 ${data.insight.savings_pct > 20 ? 'bg-kgreen-50 dark:bg-kgreen-900/20 border border-kgreen-200 dark:border-kgreen-800' : 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'}`}>
+            <div className={`rounded-2xl p-4 mb-4 ${data.insight.savings_pct > 20 ? 'bg-kgreen-50 dark:bg-kgreen-900/20 border border-kgreen-200 dark:border-kgreen-800' : 'bg-brand-50 dark:bg-brand-900/20 border border-brand-200 dark:border-brand-800'}`}>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">{data.insight.savings_pct > 20 ? '💡' : 'ℹ️'}</span>
                 <div>
-                  <p className={`font-medium text-sm ${data.insight.savings_pct > 20 ? 'text-kgreen-800 dark:text-kgreen-300' : 'text-blue-800 dark:text-blue-300'}`}>
+                  <p className={`font-medium text-sm ${data.insight.savings_pct > 20 ? 'text-kgreen-800 dark:text-kgreen-300' : 'text-brand-800 dark:text-brand-300'}`}>
                     {data.insight.recommendation}
                   </p>
                   <div className="flex gap-4 mt-2 text-xs">
